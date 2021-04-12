@@ -9,7 +9,7 @@
   <title>Pensiones | Inicio</title>
   
   <!-- FAVICON -->
-  <link href="img/favicon.png" rel="shortcut icon">
+  <link href="../images/favicon.png" rel="shortcut icon">
   <!-- PLUGINS CSS STYLE -->
   <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
   <!-- Bootstrap -->
@@ -54,7 +54,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Inicio</a>
+								<a class="nav-link" href="index.php">Inicio</a>
 							</li>
 							<!-- <li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Dashboard<span><i class="fa fa-angle-down"></i></span>
@@ -106,10 +106,10 @@
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="./vista/usuario/login.html">Iniciar Sesión</a>
+								<a class="nav-link login-button" href="vista/usuario/login.php">Iniciar Sesión</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link login-button text-white add-button" href="./vista/usuario/SignUp.html"><i class="fa fa-plus-circle"></i> Registrarse</a>
+								<a class="nav-link login-button text-white add-button" href="vista/usuario/SignUp.php"><i class="fa fa-plus-circle"></i> Registrarse</a>
 							</li>
 						</ul>
 					</div>
