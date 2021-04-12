@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Classimax</title>
+  <title>Pensiones | Registrar</title>
   
   <!-- FAVICON -->
   <link href="../../img/favicon.png" rel="shortcut icon">
@@ -54,7 +54,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="../../index.html">Incio</a>
+								<a class="nav-link" href="../../index.php">Inicio</a>
 							</li>
               <!--
 							<li class="nav-item dropdown dropdown-slide">
@@ -106,7 +106,7 @@
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link text-white add-button" href="login.html">Iniciar sesión</a>
+								<a class="nav-link text-white add-button" href="login.php">Iniciar sesión</a>
 							</li>
 						</ul>
 					</div>
@@ -122,19 +122,24 @@
                 <div class="col-lg-5 col-md-8 align-item-center">
                     <div class="border border">
                         <h3 class="bg-gray p-4">Registrarse</h3>
-                        <form action="#">
+                        <form name="formulario" action="../../control/accion/act_signup.php" method="POST">
                             <fieldset class="p-4">
-                                <input type="email" placeholder="Correo*" class="border p-3 w-100 my-2">
-                                <input type="cod" placeholder="Codigo estudiantil*" class="border p-3 w-100 my-2">
-                                <input type="name" placeholder="Nombre*" class="border p-3 w-100 my-2">
-                                <input type="age" placeholder="Edad*" class="border p-3 w-100 my-2">
-                                <input type="password" placeholder="Password*" class="border p-3 w-100 my-2">
-                                <input type="password" placeholder="Confirm Password*" class="border p-3 w-100 my-2">
+                                <input id="dni" name="dni" type="number" placeholder="DNI*" class="border p-3 w-100 my-2">
+                                <input id="nombre" name="nombre" type="name" placeholder="Nombre*" class="border p-3 w-100 my-2">
+                                <input id="apellido" name="apellido" type="name" placeholder="Apellido*" class="border p-3 w-100 my-2">
+                                <input id="email" name="email" type="email" placeholder="Correo*" class="border p-3 w-100 my-2">
+                                <input id="cel" name="cel" type="number" placeholder="Celular*" class="border p-3 w-100 my-2">
+                                <select id="tipo_usr" name="tipo_usr" class="form-select border p-3 w-100 my-2">
+                                  <option value="1">Arrendador</option>
+                                  <option value="2">Estudiante</option>
+                                </select>
+                                <input id="password" name="password" type="password" placeholder="Contraseña*" class="border p-3 w-100 my-2">
+                                <input id="password2" name="password2" type="password" placeholder="Confirmar contraseña*" class="border p-3 w-100 my-2">
                                 <div class="loggedin-forgot d-inline-flex my-3">
-                                        <input type="checkbox" id="registering" class="mt-1">
-                                        <label for="registering" class="px-2">Al registrase, tu aceptas nuestros <a class="text-primary font-weight-bold" href="terms-condition.html">Terminos & Condiciones</a></label>
+                                        <input name="acepto" type="checkbox" id="registering" class="mt-1" value="1">
+                                        <label for="registering" class="px-2">Al registrarse, tu aceptas nuestros <a class="text-primary font-weight-bold" href="terms-condition.html">Terminos & Condiciones</a></label>
                                 </div>
-                                <button type="submit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Registrase</button>
+                                <button id="submit" type="submit" name="submit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Registrarse</button>
                             </fieldset>
                         </form>
                     </div>
@@ -242,6 +247,7 @@
 <script src="../../plugins/bootstrap/js/popper.min.js"></script>
 <script src="../../plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../plugins/bootstrap/js/bootstrap-slider.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- tether js -->
 <script src="../../plugins/tether/js/tether.min.js"></script>
 <script src="../../plugins/raty/jquery.raty-fa.js"></script>
@@ -253,6 +259,37 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
 <script src="../../plugins/google-map/gmap.js"></script>
 <script src="../../js/script.js"></script>
+
+<?php
+if (isset($_GET["error"])) {
+  $error = $_GET["error"];
+  if ($error==1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Este usuario ya existe');
+      });
+    </script>";
+  }else if ($error==2) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Debe llenar todos los campos');
+      });
+    </script>";
+  }else if($error==3){
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Sus contraseñas no coinciden');
+      });
+    </script>";
+  }else if($error==4){
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Debe aceptar los terminos');
+      });
+    </script>";
+  }
+}
+?>
 
 </body>
 

@@ -5,55 +5,48 @@
  */
 class Usuario
 {
-    protected $idUsuario;
-    protected $cc;
+    protected $id;
+    protected $idTipoUsuario;
+    protected $dni;
     protected $nombre;
     protected $apellido;
-    protected $fecha_nacimiento;
-    protected $sexo;
     protected $email;
     protected $telefono;
-    protected $usuario;
     protected $password;
-    protected $idTipoUsuario;
     
-    public function __construct($idUsuario, $cc, $nombre, $apellido, $fecha_nacimiento,$sexo,$email,$telefono,$usuario,$password, $idTipoUsuario){
+    public function __construct($id, $dni, $nombre, $apellido, $email, $password, $telefono, $idTipoUsuario){
         
-        $this->idUsuario = $idUsuario;
-		$this->cc = $cc;
+        $this->id = $id;
+        $this->idTipoUsuario = $idTipoUsuario;
+		$this->dni = $dni;
 		$this->nombre = $nombre;
 		$this->apellido = $apellido;
-		$this->fecha_nacimiento = $fecha_nacimiento;
-		$this->sexo = $sexo;
 		$this->email = $email;
 		$this->telefono = $telefono;
-		$this->usuario= $usuario;
 		$this->password = $password;
-		$this->idTipoUsuario = $idTipoUsuario;
-	
     }
     
     
     public function getIdUsuario()
     {
-        return $this->idUsuario;
+        return $this->id;
     }
     
     public function setIdUsuario($idUsuario)
     {
-        $this->idUsuario = $idUsuario;
+        $this->id = $idUsuario;
         
         return $this;
     }
     
-     public function getCc()
+     public function getDni()
     {
-        return $this->cc;
+        return $this->dni;
     }
     
-    public function setCc($cc)
+    public function setDni($dni)
     {
-        $this->cc = $cc;
+        $this->dni = $dni;
         
         return $this;
     }
@@ -83,31 +76,6 @@ class Usuario
         return $this;
     }
 
-     public function getFecha_Nacimiento()
-    {
-        return $this->fecha_nacimiento;
-    }
-
-    
-    public function setFecha_Nacimiento($fecha_nacimiento)
-    {
-        $this->fecha_nacimiento = $fecha_nacimiento;
-
-        return $this;
-    } 
-
-     public function getSexo()
-    {
-        return $this->sexo;
-    }
-
-    public function setSexo($sexo)
-    {
-        $this->sexo = $sexo;
-
-        return $this;
-    }
-
   	 public function getEmail()
     {
         return $this->email;
@@ -128,18 +96,6 @@ class Usuario
     public function setTelefono($telefono)
     {
         $this->telefono = $telefono;
-
-        return $this;
-    }
-    
-    public function getUsuario()
-    {
-        return $this->usuario;
-    }
-
-    public function setUsuario($usuario)
-    {
-        $this->usuario = $usuario;
 
         return $this;
     }
@@ -167,9 +123,6 @@ class Usuario
 
         return $this;
     }
-
-
-
         
     public function toArray() {
         $vars = get_object_vars ( $this );
