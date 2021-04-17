@@ -9,7 +9,7 @@ session_start();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio | Arrendatario</title>
+  <title>Inicio | Arrendador</title>
   
   <!-- FAVICON -->
   <link href="../../img/favicon.png" rel="shortcut icon">
@@ -46,7 +46,7 @@ session_start();
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="arrendador.php">
 						<img src="../../images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -56,56 +56,39 @@ session_start();
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home</a>
+								<a class="nav-link" href="arrendador.php">Inicio</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Dashboard<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Mis casas<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-									<a class="dropdown-item" href="dashboard-my-ads.html">Dashboard My Ads</a>
-									<a class="dropdown-item" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
-									<a class="dropdown-item" href="dashboard-archived-ads.html">Dashboard Archived Ads</a>
-									<a class="dropdown-item" href="dashboard-pending-ads.html">Dashboard Pending Ads</a>
+									<a class="dropdown-item" href="#">Agregar una casa nueva</a>
+									<a class="dropdown-item" href="#">Editar casa</a>
+									<a class="dropdown-item" href="#">Eliminar casa</a>
+									<a class="dropdown-item" href="#">Chat</a>
+									<a class="dropdown-item" href="#">Ver citas</a>
 								</div>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Pages <span><i class="fa fa-angle-down"></i></span>
+									Configuración de cuenta <span><i class="fa fa-angle-down"></i></span>
 								</a>
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="about-us.html">About Us</a>
-									<a class="dropdown-item" href="contact-us.html">Contact Us</a>
-									<a class="dropdown-item" href="user-profile.html">User Profile</a>
-									<a class="dropdown-item" href="404.html">404 Page</a>
-									<a class="dropdown-item" href="package.html">Package</a>
-									<a class="dropdown-item" href="single.html">Single Page</a>
-									<a class="dropdown-item" href="store.html">Store Single</a>
-									<a class="dropdown-item" href="single-blog.html">Single Post</a>
-									<a class="dropdown-item" href="blog.html">Blog</a>
-
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Listing <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="category.html">Ad-Gird View</a>
-									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
+									<a class="dropdown-item" href="#">Cambiar foto de perfil</a>
+									<a class="dropdown-item" href="#">Editar número de telefono</a>
+									<a class="dropdown-item" href="#">Cambiar nombre de usuario</a>
+									<a class="dropdown-item" href="#">Verificar correo</a>
+									<a class="dropdown-item" href="#">Actualizar cuenta de respaldo</a>
+									<a class="dropdown-item" href="#">Eliminar cuenta</a>
 								</div>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="../../index.php">Logout</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+								<a class="nav-link text-white btn-danger" href="login.php">Cerrar sesión</a>
 							</li>
 						</ul>
 					</div>
@@ -133,26 +116,21 @@ session_start();
             <!-- User Name -->
             <?php
               echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
-              echo "<p>Arrendatario</p>";
+              echo "<p>Arrendador</p>";
             ?>
-            <a href="user-profile.html" class="btn btn-main-sm">Edit Profile</a>
           </div>
           <!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">
             <ul>
-              <li class="active"><a href="dashboard-my-ads.html"><i class="fa fa-user"></i> My Ads</a></li>
-              <li><a href="dashboard-favourite-ads.html"><i class="fa fa-bookmark-o"></i> Favourite Ads <span>5</span></a></li>
-              <li><a href="dashboard-archived-ads.html"><i class="fa fa-file-archive-o"></i>Archived Ads <span>12</span></a></li>
-              <li><a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a></li>
-              <li><a href="#"><i class="fa fa-cog"></i> Logout</a></li>
-              <li><a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i>Delete
-                  Account</a></li>
-            </ul>
+              <li class="active"><a href="#"><i class="fa fa-user"></i> Mis casas</a></li>
+              <li><a href="#"><i class="fa fa-bookmark-o"></i> Casas más buscadas <span>5</span></a></li>
+              <li><a href="#"><i class="fa fa-file-archive-o"></i>Casas llenas <span>12</span></a></li>
+              <li><a href="#"><i class="fa fa-bolt"></i> Casas disponibles<span>23</span></a></li>
           </div>
 
           <!-- delete-account modal -->
           						  <!-- delete account popup modal start-->
-                <!-- Modal -->
+                <!-- Modal 
                 <div class="modal fade" id="deleteaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
                   aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -175,119 +153,52 @@ session_start();
                     </div>
                   </div>
                 </div>
-                <!-- delete account popup modal end-->
+                <!- delete account popup modal end-->
           <!-- delete-account modal -->
-
+          
         </div>
       </div>
       <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
         <!-- Recently Favorited -->
         <div class="widget dashboard-container my-adslist">
-          <h3 class="widget-header">My Ads</h3>
+          <h3 class="widget-header">Mis casas</h3>
           <table class="table table-responsive product-dashboard-table">
             <thead>
               <tr>
-                <th>Image</th>
-                <th>Product Title</th>
-                <th class="text-center">Category</th>
-                <th class="text-center">Action</th>
+                <th>Imagen</th>
+                <th>Descripción</th>
+                <th class="text-center"></th>
+                <th class="text-center">Acciones</th>
               </tr>
             </thead>
-            <tbody><!--
+            <tbody>
               <tr>
 
                 <td class="product-thumb">
-                  <img width="80px" height="auto" src="images/products/products-1.jpg" alt="image description"></td>
+                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
                 <td class="product-details">
-                  <h3 class="title">Macbook Pro 15inch</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+                  <h3 class="title">Pension 1</h3>
+                  <span class="add-id"><strong>Dirección:</strong>Calle falsa #123</span>
+                  <span><strong>Publicación: </strong><time>Junio 27, 2017</time> </span>
+                  <span class="status active"><strong>Estado</strong>Disponible</span>
+                  <span class="location"><strong>Barrio</strong>Almendros</span>
                 </td>
-                <td class="product-category"><span class="categories">Laptops</span></td>
+                <td class="product-category"><span class="categories status active"></span></td>
                 <td class="action" data-title="Action">
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="view" class="view" href="category.html">
+                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
                           <i class="fa fa-eye"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
+                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
                           <i class="fa fa-pencil"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-
-                <td class="product-thumb">
-                  <img width="80px" height="auto" src="images/products/products-2.jpg" alt="image description"></td>
-                <td class="product-details">
-                  <h3 class="title">Study Table Combo</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Feb 12, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>USA</span>
-                </td>
-                <td class="product-category"><span class="categories">Laptops</span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="product-thumb">
-                  <img width="80px" height="auto" src="images/products/products-3.jpg" alt="image description"></td>
-                <td class="product-details">
-                  <h3 class="title">Macbook Pro 15inch</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-                </td>
-                <td class="product-category"><span class="categories">Laptops</span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
+                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
                           <i class="fa fa-trash"></i>
                         </a>
                       </li>
@@ -297,31 +208,31 @@ session_start();
               </tr>
               <tr>
 
-                <td class="product-thumb">
-                  <img width="80px" height="auto" src="images/products/products-4.jpg" alt="image description"></td>
+              <td class="product-thumb">
+                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
                 <td class="product-details">
-                  <h3 class="title">Macbook Pro 15inch</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+                  <h3 class="title">Pension 2</h3>
+                  <span class="add-id"><strong>Dirección:</strong>Calle siempre viva #123</span>
+                  <span><strong>Publicación: </strong><time>Junio 28, 2017</time> </span>
+                  <span class="status"><strong>Estado</strong>No Disponible</span>
+                  <span class="location"><strong>Barrio</strong>Pescaito</span>
                 </td>
-                <td class="product-category"><span class="categories">Laptops</span></td>
+                <td class="product-category"><span class="categories "></span></td>
                 <td class="action" data-title="Action">
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
+                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
                           <i class="fa fa-eye"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
+                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
                           <i class="fa fa-pencil"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
+                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
                           <i class="fa fa-trash"></i>
                         </a>
                       </li>
@@ -330,32 +241,31 @@ session_start();
                 </td>
               </tr>
               <tr>
-
-                <td class="product-thumb">
-                  <img width="80px" height="auto" src="images/products/products-1.jpg" alt="image description"></td>
+              <td class="product-thumb">
+                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
                 <td class="product-details">
-                  <h3 class="title">Macbook Pro 15inch</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+                  <h3 class="title">Pension 3</h3>
+                  <span class="add-id"><strong>Dirección:</strong>Calle llorona #123</span>
+                  <span><strong>Publicación: </strong><time>Junio 29, 2017</time> </span>
+                  <span class="status"><strong>Estado</strong>No Disponible</span>
+                  <span class="location"><strong>Barrio</strong>Villa Marbella</span>
                 </td>
-                <td class="product-category"><span class="categories">Laptops</span></td>
+                <td class="product-category"><span class="categories "></span></td>
                 <td class="action" data-title="Action">
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a href="category.html" data-toggle="tooltip" data-placement="top" title="View" class="view">
+                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
                           <i class="fa fa-eye"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="">
+                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
                           <i class="fa fa-pencil"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="">
+                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
                           <i class="fa fa-trash"></i>
                         </a>
                       </li>
@@ -363,7 +273,74 @@ session_start();
                   </div>
                 </td>
               </tr>
-          --></tbody>
+
+              <td class="product-thumb">
+                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
+                <td class="product-details">
+                  <h3 class="title">Pension 4</h3>
+                  <span class="add-id"><strong>Dirección:</strong>Calle siempre viva #123</span>
+                  <span><strong>Publicación: </strong><time>Junio 29, 2017</time> </span>
+                  <span class="status"><strong>Estado</strong>Disponible</span>
+                  <span class="location"><strong>Barrio</strong>Pescaito</span>
+                </td>
+                <td class="product-category"><span class="categories "></span></td>
+                <td class="action" data-title="Action">
+                  <div class="">
+                    <ul class="list-inline justify-content-center">
+                      <li class="list-inline-item">
+                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
+                          <i class="fa fa-eye"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
+                          <i class="fa fa-pencil"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
+                          <i class="fa fa-trash"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+
+              <td class="product-thumb">
+                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
+                <td class="product-details">
+                  <h3 class="title">Pension 5</h3>
+                  <span class="add-id"><strong>Dirección:</strong>Calle Brisa Loca #123</span>
+                  <span><strong>Publicación: </strong><time>Junio 29, 2017</time> </span>
+                  <span class="status"><strong>Estado</strong>No Disponible</span>
+                  <span class="location"><strong>Barrio</strong>Pescaito</span>
+                </td>
+                <td class="product-category"><span class="categories "></span></td>
+                <td class="action" data-title="Action">
+                  <div class="">
+                    <ul class="list-inline justify-content-center">
+                      <li class="list-inline-item">
+                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
+                          <i class="fa fa-eye"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
+                          <i class="fa fa-pencil"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
+                          <i class="fa fa-trash"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              </tr>
+            </tbody>
           </table>
 
         </div>
@@ -410,7 +387,7 @@ session_start();
         <!-- About -->
         <div class="block about">
           <!-- footer logo -->
-          <img src="images/logo-footer.png" alt="">
+          <img src="../../images/logo.png" alt="">
           <!-- description -->
           <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -420,21 +397,22 @@ session_start();
       <!-- Link list -->
       <div class="col-lg-2 offset-lg-1 col-md-3">
         <div class="block">
-          <h4>Site Pages</h4>
+          <h4>Contactenos</h4>
           <ul>
-            <li><a href="#">Boston</a></li>
-            <li><a href="#">How It works</a></li>
-            <li><a href="#">Deals & Coupons</a></li>
-            <li><a href="#">Articls & Tips</a></li>
-            <li><a href="terms-condition.html">Terms & Conditions</a></li>
+            <li><a href="#">3004303030</a></li>
+            <li><a href="#">pensiones@pensiones.co</a></li>
+            <li><a href="#">Calle 12 # 15-20</a></li>
+            <li><a href="terms-condition.html">Terminos & condiciones</a></li>
           </ul>
         </div>
       </div>
+      <!--
       <!-- Link list -->
       <div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0">
         <div class="block">
-          <h4>Admin Pages</h4>
-          <ul>
+          <!--
+            <h4>Admin Pages</h4>
+            <ul>
             <li><a href="category.html">Category</a></li>
             <li><a href="single.html">Single Page</a></li>
             <li><a href="store.html">Store Single</a></li>
@@ -442,18 +420,18 @@ session_start();
             </li>
             <li><a href="blog.html">Blog</a></li>
 
-
-
           </ul>
+           -->
         </div>
       </div>
-      <!-- Promotion -->
+      <!--
+      <!-- Promotion --
       <div class="col-lg-4 col-md-7">
-        <!-- App promotion -->
+        <!-- App promotion --
         <div class="block-2 app-promotion">
           <div class="mobile d-flex">
             <a href="">
-              <!-- Icon -->
+              <!-- Icon -
               <img src="images/footer/phone-icon.png" alt="mobile-icon">
             </a>
             <p>Get the Dealsy Mobile App and Save more</p>
@@ -464,6 +442,7 @@ session_start();
           </div>
         </div>
       </div>
+    -->
     </div>
   </div>
   <!-- Container End -->
@@ -479,17 +458,8 @@ session_start();
           <p>Copyright © <script>
               var CurrentYear = new Date().getFullYear()
               document.write(CurrentYear)
-            </script>. All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com" target="_blank">themefisher.com</a></p>
+            </script>. Todos los derechos reservados.</p>
         </div>
-      </div>
-      <div class="col-sm-6 col-12">
-        <!-- Social Icons -->
-        <ul class="social-media-icons text-right">
-          <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-vimeo" href=""></a></li>
-        </ul>
       </div>
     </div>
   </div>
@@ -512,10 +482,37 @@ session_start();
 <script src="../../plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 <script src="../../plugins/fancybox/jquery.fancybox.pack.js"></script>
 <script src="../../plugins/smoothscroll/SmoothScroll.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- google map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
 <script src="../../plugins/google-map/gmap.js"></script>
 <script src="../../js/script.js"></script>
+
+<?php
+if (isset($_GET["error"])) {
+  $error = $_GET["error"];
+  if ($error == 1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Correo o contraseña invalidos');
+      });
+    </script>";
+  }else if ($error == 2) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Error interno');
+      });
+    </script>";
+  }
+  else if ($error == 3) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Llene todos los campos');
+      });
+    </script>";
+  }
+}
+?>
 
 </body>
 
