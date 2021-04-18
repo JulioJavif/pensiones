@@ -116,7 +116,7 @@ session_start();
             <!-- User Name -->
             <?php
               echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
-              echo "<p>Arrendatario</p>";
+              echo "<p>Estudiante</p>";
             ?>
           </div>
           <!-- Dashboard Links -->
