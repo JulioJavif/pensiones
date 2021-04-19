@@ -111,21 +111,22 @@ session_start();
           <div class="widget user-dashboard-profile">
             <!-- User Image -->
             <div class="profile-thumb">
-              <img src="images/user/user-thumb.jpg" alt="" class="rounded-circle">
+              <img src="../../images/user/profile.png" alt="" class="rounded-circle">
             </div>
             <!-- User Name -->
             <?php
               echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
               echo "<p>Arrendador</p>";
             ?>
+            <a href="#" class="btn btn-main-sm">Editar foto</a>
           </div>
           <!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">
             <ul>
-              <li class="active"><a href="#"><i class="fa fa-user"></i> Mis casas</a></li>
-              <li><a href="#"><i class="fa fa-bookmark-o"></i> Casas más buscadas <span>5</span></a></li>
-              <li><a href="#"><i class="fa fa-file-archive-o"></i>Casas llenas <span>12</span></a></li>
-              <li><a href="#"><i class="fa fa-bolt"></i> Casas disponibles<span>23</span></a></li>
+              <li class="active"><a href="#"><i class="fa fa-home"></i> Mis casas</a></li>
+              <li><a href="#"><i class="fa fa-search-plus"></i> Casas más buscadas <span>5</span></a></li>
+              <li><a href="#"><i class="fa fa-building"></i>Casas llenas <span>12</span></a></li>
+              <li><a href="#"><i class="fa fa-check"></i> Casas disponibles<span>23</span></a></li>
           </div>
 
           <!-- delete-account modal -->
@@ -179,7 +180,7 @@ session_start();
                 <td class="product-details">
                   <h3 class="title">Pension 1</h3>
                   <span class="add-id"><strong>Dirección:</strong>Calle falsa #123</span>
-                  <span><strong>Publicación: </strong><time>Junio 27, 2017</time> </span>
+                  <span><strong>Publicación: </strong><time> Junio 27, 2017</time> </span>
                   <span class="status active"><strong>Estado</strong>Disponible</span>
                   <span class="location"><strong>Barrio</strong>Almendros</span>
                 </td>
@@ -213,7 +214,7 @@ session_start();
                 <td class="product-details">
                   <h3 class="title">Pension 2</h3>
                   <span class="add-id"><strong>Dirección:</strong>Calle siempre viva #123</span>
-                  <span><strong>Publicación: </strong><time>Junio 28, 2017</time> </span>
+                  <span><strong>Publicación: </strong><time> Junio 28, 2017</time> </span>
                   <span class="status"><strong>Estado</strong>No Disponible</span>
                   <span class="location"><strong>Barrio</strong>Pescaito</span>
                 </td>
@@ -246,7 +247,7 @@ session_start();
                 <td class="product-details">
                   <h3 class="title">Pension 3</h3>
                   <span class="add-id"><strong>Dirección:</strong>Calle llorona #123</span>
-                  <span><strong>Publicación: </strong><time>Junio 29, 2017</time> </span>
+                  <span><strong>Publicación: </strong><time> Junio 29, 2017</time> </span>
                   <span class="status"><strong>Estado</strong>No Disponible</span>
                   <span class="location"><strong>Barrio</strong>Villa Marbella</span>
                 </td>
@@ -279,7 +280,7 @@ session_start();
                 <td class="product-details">
                   <h3 class="title">Pension 4</h3>
                   <span class="add-id"><strong>Dirección:</strong>Calle siempre viva #123</span>
-                  <span><strong>Publicación: </strong><time>Junio 29, 2017</time> </span>
+                  <span><strong>Publicación: </strong><time> Junio 29, 2017</time> </span>
                   <span class="status"><strong>Estado</strong>Disponible</span>
                   <span class="location"><strong>Barrio</strong>Pescaito</span>
                 </td>
@@ -312,7 +313,7 @@ session_start();
                 <td class="product-details">
                   <h3 class="title">Pension 5</h3>
                   <span class="add-id"><strong>Dirección:</strong>Calle Brisa Loca #123</span>
-                  <span><strong>Publicación: </strong><time>Junio 29, 2017</time> </span>
+                  <span><strong>Publicación: </strong><time> Junio 29, 2017</time> </span>
                   <span class="status"><strong>Estado</strong>No Disponible</span>
                   <span class="location"><strong>Barrio</strong>Pescaito</span>
                 </td>

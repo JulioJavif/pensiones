@@ -129,7 +129,7 @@
                                 <input id="apellido" name="apellido" type="name" placeholder="Apellido*" class="border p-3 w-100 my-2">
                                 <input id="email" name="email" type="email" placeholder="Correo*" class="border p-3 w-100 my-2">
                                 <input id="cel" name="cel" type="number" placeholder="Celular*" class="border p-3 w-100 my-2">
-                                <select id="tipo_usr" name="tipo_usr" class="form-select border p-3 w-100 my-2">
+                                <select id="tipo_usr" name="tipo_usr" class="w-100">
                                   <option value="1">Arrendador</option>
                                   <option value="2">Estudiante</option>
                                 </select>
