@@ -56,53 +56,6 @@
 							<li class="nav-item active">
 								<a class="nav-link" href="index.php">Inicio</a>
 							</li>
-							<!-- <li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Dashboard<span><i class="fa fa-angle-down"></i></span>
-								</a>
-
-								<!-- Dropdown list 
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-									<a class="dropdown-item" href="dashboard-my-ads.html">Dashboard My Ads</a>
-									<a class="dropdown-item" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
-									<a class="dropdown-item" href="dashboard-archived-ads.html">Dashboard Archived Ads</a>
-									<a class="dropdown-item" href="dashboard-pending-ads.html">Dashboard Pending Ads</a>
-								</div>
-							</li>
-              -->
-              <!-- 
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Pages <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list 
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="about-us.html">About Us</a>
-									<a class="dropdown-item" href="contact-us.html">Contact Us</a>
-									<a class="dropdown-item" href="user-profile.html">User Profile</a>
-									<a class="dropdown-item" href="404.html">404 Page</a>
-									<a class="dropdown-item" href="package.html">Package</a>
-									<a class="dropdown-item" href="single.html">Single Page</a>
-									<a class="dropdown-item" href="store.html">Store Single</a>
-									<a class="dropdown-item" href="single-blog.html">Single Post</a>
-									<a class="dropdown-item" href="blog.html">Blog</a>
-
-								</div>
-							</li>
-                -->
-
-                <!-- 
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Listing <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list 
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="category.html">Ad-Gird View</a>
-									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
-								</div>
-							</li>
-              -->
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
@@ -132,62 +85,9 @@
 				<div class="content-block">
 					<h1>BIENVENIDO  </h1>
 					<p> Con pensiones podras encontrar tu pensión favorita <br>
-              Elige la que más se adapte a tus necesidades
-          </p>
-					<!--
-          <div class="short-popular-category-list text-center">
-						<h2>Categorias populares</h2>
-						<ul class="list-inline">
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-bed"></i> Hotel</a></li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-grav"></i> Fitness</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-car"></i> Cars</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-cutlery"></i> Restaurants</a>
-							</li>
-							<li class="list-inline-item">
-								<a href="category.html"><i class="fa fa-coffee"></i> Cafe</a>
-							</li>
-						</ul>
-					</div>
-					-->
+              			Elige la que más se adapte a tus necesidades
+          			</p>
 				</div>
-				<!-- Advance Search -->
-				<div class="advance-search">
-						<div class="container">
-							<div class="row justify-content-center">
-								<div class="col-lg-12 col-md-12 align-content-center">
-										<form>
-											<div class="form-row">
-												<div class="form-group col-md-4">
-													<input type="text" class="form-control my-2 my-lg-1" id="inputtext4" placeholder="¿Qué estás buscando?">
-												</div>
-												<div class="form-group col-md-3">
-													<select class="w-100 form-control mt-lg-1 mt-md-2">
-														<option>Categorias</option>
-														<option value="1">Comidas</option>
-														<option value="2">Cantidad de cuartos</option>
-														<option value="3">Cantidad de personas</option>
-                            <option value="4">Mejor calificadas</option>
-													</select>
-												</div>
-												<div class="form-group col-md-3">
-													<input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Barrio">
-												</div>
-												<div class="form-group col-md-2 align-self-center">
-													<button type="submit" class="btn btn-primary">Buscar</button>
-												</div>
-											</div>
-										</form>
-									</div>
-								</div>
-					</div>
-				</div>
-				
 			</div>
 		</div>
 	</div>
@@ -208,8 +108,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2>Lo más buscado</h2>
-					<p>Elija la opción que más le llame la atención</p>
+					<h2>Estas son las pensiones más buscadas</h2>
+					<p>¡Inicia sesión y elige la tuya!</p>
 				</div>
 			</div>
 		</div>
