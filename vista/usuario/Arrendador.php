@@ -1,5 +1,8 @@
 <?php
-session_start();
+  session_start();
+  if (!isset($_SESSION['nombre'])) {
+    header('location: login.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +91,9 @@ session_start();
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link text-white btn-danger" href="login.php">Cerrar sesión</a>
+                <form action='../../control/accion/act_logout.php'>
+                <input type="submit" name="sesionDestroy" class="nav-link text-white btn-danger" value="Cerrar sesion"/>
+                </form>
 							</li>
 						</ul>
 					</div>
