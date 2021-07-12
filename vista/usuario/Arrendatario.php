@@ -44,7 +44,7 @@
 
 <body class="body-wrapper">
 
-<section>
+<section class="bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -71,20 +71,6 @@
 									<a class="dropdown-item" href="search.php">Buscar casa</a>
 									<a class="dropdown-item" href="#">Chat</a>
 									<a class="dropdown-item" href="#">Citas</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Configuración de cuenta <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Cambiar foto de perfil</a>
-									<a class="dropdown-item" href="#">Editar número de telefono</a>
-									<a class="dropdown-item" href="#">Cambiar nombre de usuario</a>
-									<a class="dropdown-item" href="#">Verificar correo</a>
-									<a class="dropdown-item" href="#">Actualizar cuenta de respaldo</a>
-									<a class="dropdown-item" href="#">Eliminar cuenta</a>
 								</div>
 							</li>
 						</ul>
@@ -122,7 +108,7 @@
               echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
               echo "<p>Estudiante</p>";
             ?>
-            <a href="#" class="btn btn-main-sm">Editar foto</a>
+            <a href="EditArrendatario" class="btn btn-main-sm">Editar Perfil</a>
           </div>
           <!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">
@@ -131,34 +117,6 @@
               <li><a href="#"><i class="fa fa-search-plus"></i> Casas más buscadas <span>5</span></a></li>
               <li><a href="#"><i class="fa fa-bookmark"></i> Arrendadas anteriormente<span>12</span></a></li>
           </div>
-
-          <!-- delete-account modal -->
-          						  <!-- delete account popup modal start-->
-                <!-- Modal --
-                <div class="modal fade" id="deleteaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                  aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header border-bottom-0">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body text-center">
-                        <img src="images/account/Account1.png" class="img-fluid mb-2" alt="">
-                        <h6 class="py-2">Are you sure you want to delete your account?</h6>
-                        <p>Do you really want to delete these records? This process cannot be undone.</p>
-                        <textarea name="message" id="" cols="40" rows="4" class="w-100 rounded"></textarea>
-                      </div>
-                      <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!- delete account popup modal end-->
-          <!-- delete-account modal -->
           
         </div>
       </div>

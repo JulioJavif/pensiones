@@ -47,7 +47,7 @@
 
 <body class="body-wrapper">
 
-<section>
+<section class="bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -74,20 +74,6 @@
 									<a class="dropdown-item" href="search.php">Buscar casa</a>
 									<a class="dropdown-item" href="#">Chat</a>
 									<a class="dropdown-item" href="#">Citas</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Configuración de cuenta <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Cambiar foto de perfil</a>
-									<a class="dropdown-item" href="#">Editar número de telefono</a>
-									<a class="dropdown-item" href="#">Cambiar nombre de usuario</a>
-									<a class="dropdown-item" href="#">Verificar correo</a>
-									<a class="dropdown-item" href="#">Actualizar cuenta de respaldo</a>
-									<a class="dropdown-item" href="#">Eliminar cuenta</a>
 								</div>
 							</li>
 						</ul>
