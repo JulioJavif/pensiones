@@ -109,7 +109,7 @@
 					echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
 					echo "<p>Arrendatario</p>";
 					?>
-					<a href="EditArrendatariio.php" class="btn btn-main-sm">Eliminar cuenta</a>
+					<a href="EditArrendatario.php" class="btn btn-main-sm">Eliminar cuenta</a>
 				</div>
 					<!-- Dashboard Links -->
 				</div>
