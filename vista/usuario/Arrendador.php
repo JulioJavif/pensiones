@@ -67,7 +67,7 @@
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Agregar una casa nueva</a>
+									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
 									<a class="dropdown-item" href="#">Editar casa</a>
 									<a class="dropdown-item" href="#">Eliminar casa</a>
 									<a class="dropdown-item" href="#">Chat</a>

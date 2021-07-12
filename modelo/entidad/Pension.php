@@ -1,55 +1,55 @@
 <?php
 
 class Pension{
-    protected $titulo;
     protected $direccion;
-    protected $texto;
-    protected $estado;
-    protected $userid;
+    protected $barrio;
+    protected $descripcion;
+    protected $path;
+    protected $userId;
 
-    public function __construct($titulo, $direccion, $texto, $estado, $userid)
+    public function __construct($direccion, $barrio, $descripcion, $path, $userId)
     {
-        $this->titulo= $titulo;
-        $this->direccion= $direccion;
-        $this->texto= $texto;
-        $this->estado= $estado;
-        $this->userid= $userid;
-    }
-
-    public function getTitulo(){
-        return $this->titulo;
+        $this->direccion = $direccion;
+        $this->barrio = $barrio;
+        $this->descripcion = $descripcion;
+        $this->path = $path;
+        $this->userId = $userId;
     }
 
     public function getDireccion(){
-        return $this->dirección;
+        return $this->direccion;
     }
 
-    public function getTexto(){
-        return $this->texto;
+    public function getBarrio(){
+        return $this->barrio;
     }
 
-    public function getEstado(){
-        return $this->estado;
+    public function getDescripcion(){
+        return $this->descripcion;
+    }
+
+    public function getPath(){
+        return $this->path;
     }
 
     public function getUserId(){
-        return $this->userid;
-    }
-
-    public function setTitulo($titulo){
-        $this->titulo = $titulo;
+        return $this->userId;
     }
 
     public function setDireccion($direcccion){
-        $this->direccion = $direcccion
+        $this->direccion = $direcccion;
     }
 
-    public function setTexto($texto){
-        $this->texto = $texto;
+    public function setBarrio($barrio){
+        $this->barrio = $barrio;
     }
 
-    public function setEstado($estado){
-        $this->estado = $estado;
+    public function setDescripcion($descripcion){
+        $this->descripcion = $descripcion;
+    }
+
+    public function setPath($path){
+        $this->path = $path;
     }
 
     public function setUserId($UserId){
