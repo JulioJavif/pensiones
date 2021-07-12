@@ -52,12 +52,13 @@ if (isset($_POST)) {
 
                 $directorio = "../../images/fotos/";
                 $aleatorio = mt_rand(100, 1000000);
-                $path1 = "../../images/fotos/".$_SESSION['id'].$aleatorio.".png";
+                $path1 = "../../images/fotos/".$aleatorio.$file1['name'];
 
                 $pension = new Pension($direccion, $barrio, $descripcion, $path1, $_SESSION['id']);
                 $casaAgregada = PensionDAO::InsertarCasa($pension);
+                $img = PensionDAO::GuardarImagen($path1, $file1['name'], $aleatorio.$file1['name'], $_SESSION['id'], $direccion);
 
-                if($casaAgregada){
+                if($casaAgregada && $img){
                     if(!file_exists($directorio )){
                         mkdir($directorio, 0777, true);
                         if(file_exists($directorio )){
