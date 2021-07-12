@@ -44,7 +44,7 @@
 
 <body class="body-wrapper">
 
-<section>
+<section class="bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -59,10 +59,10 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="arrendador.php">Inicio</a>
+								<a class="nav-link bg-gray" href="arrendador.php">Inicio</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Mis casas<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle bg-gray" data-toggle="dropdown" href="">Mis casas<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
@@ -72,20 +72,6 @@
 									<a class="dropdown-item" href="#">Eliminar casa</a>
 									<a class="dropdown-item" href="#">Chat</a>
 									<a class="dropdown-item" href="#">Ver citas</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Configuración de cuenta <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Cambiar foto de perfil</a>
-									<a class="dropdown-item" href="#">Editar número de telefono</a>
-									<a class="dropdown-item" href="#">Cambiar nombre de usuario</a>
-									<a class="dropdown-item" href="#">Verificar correo</a>
-									<a class="dropdown-item" href="#">Actualizar cuenta de respaldo</a>
-									<a class="dropdown-item" href="#">Eliminar cuenta</a>
 								</div>
 							</li>
 						</ul>
@@ -123,7 +109,7 @@
               echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
               echo "<p>Arrendador</p>";
             ?>
-            <a href="#" class="btn btn-main-sm">Editar foto</a>
+            <a href="EditArrendador.php" class="btn btn-main-sm">Editar perfil</a>
           </div>
           <!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">

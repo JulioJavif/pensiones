@@ -53,7 +53,7 @@
 <body class="body-wrapper">
 
 
-<section>
+<section class="bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
