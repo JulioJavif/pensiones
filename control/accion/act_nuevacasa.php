@@ -10,26 +10,22 @@ if (isset($_POST)) {
         && isset($_POST["capacidadhabitacion"])
         /*&& isset($_FILES["file2"])*/) {
             
-            $aire = 0;
-            $aseo = 0;
-            $alimentacion = 0;
-            $cocina = 0;
-            $lavado = 0;
+            $servicios = array('aire'=>0, 'aseo'=>0, 'alimentacion'=>0, 'cocina'=>0, 'lavado'=>0);
 
             if (isset($_POST["aireacondicionado"])) {
-                $aire = $_POST["aireacondicionado"];
+                $servicios['aire'] = $_POST["aireacondicionado"];
             }
             if (isset($_POST["aseohabitacion"])) {
-                $aseo = $_POST["aseohabitacion"];
+                $servicios['aseo'] = $_POST["aseohabitacion"];
             }
             if (isset($_POST["alimentacion"])) {
-                $alimentacion = $_POST["alimentacion"];
+                $servicios['alimentacion'] = $_POST["alimentacion"];
             }
             if (isset($_POST["cocina"])) {
-                $cocina = $_POST["cocina"];
+                $servicios['cocina'] = $_POST["cocina"];
             }
             if (isset($_POST["lavado"])) {
-                $lavado = $_POST["lavado"];
+                $servicios['lavado'] = $_POST["lavado"];
             }
 
             $direccion = $_POST["direccion"];
@@ -45,7 +41,7 @@ if (isset($_POST)) {
             if (isset($file1) && $file1!="" && isset($file2) && $file2!="") {
                 echo $direccion . "<br>" . $barrio . "<br>" . $descripcion . "<br>" . $file1["type"] . "<br>" . $file1["tmp_name"] . "<br><br>";
                 echo $valorhabitacion . "<br>" . $descripcion2 . "<br>" . $capacidadhabitacion . "<br>" . $file2["type"] . "<br>" . $file2["tmp_name"]  . "<br><br>";
-                echo $aire . "<br>" . $aseo . "<br>" . $alimentacion . "<br>" . $cocina . "<br>" . $lavado . "<br><br>";
+                //echo $aire . "<br>" . $aseo . "<br>" . $alimentacion . "<br>" . $cocina . "<br>" . $lavado . "<br><br>";
                 
                 require_once (__DIR__."/../../modelo/dao/PensionDAO.php");
                 session_start();
@@ -57,6 +53,13 @@ if (isset($_POST)) {
                 $pension = new Pension($direccion, $barrio, $descripcion, $path1, $_SESSION['id']);
                 $casaAgregada = PensionDAO::InsertarCasa($pension);
                 $img = PensionDAO::GuardarImagen($path1, $file1['name'], $aleatorio.$file1['name'], $_SESSION['id'], $direccion);
+                $serv = array();
+                foreach ($servicios as $key => $value) {
+                    if ($value!=0) {
+                        array_push($serv, $value);
+                    }
+                }
+                $serv = PensionDAO::GuardarServicios($serv, $_SESSION['id'], $direccion);
 
                 if($casaAgregada && $img){
                     if(!file_exists($directorio )){
@@ -78,6 +81,13 @@ if (isset($_POST)) {
                         echo "<br>";
                         var_dump($path1);
                     }
+
+                    if ($serv) {
+                        echo "<br>Servicios guardados";
+                    }
+
+                    header("Location:/../pensiones/vista/usuario/AddPension.php?success=1");
+                    exit();
                 }else {
                     echo "No se Guardó la casa";
                 }

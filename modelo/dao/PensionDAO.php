@@ -73,7 +73,40 @@ class PensionDAO{
         return false;
     }
 
+    public static function GuardarServicios($servicios, $userID, $direccion){
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
 
+        $casaId = PensionDAO::casaID($userID, $direccion);
+        foreach ($servicios as $key => $value) {
+            $sql = "SELECT id FROM services WHERE services.key = $value";
+            $resultado = $cnx->prepare($sql);
+            if ($resultado->execute()) {
+                $row = $resultado->fetch();
+                $row = $row['id'];
+                $none = "none";
+
+                $sql = "INSERT INTO house_services (id, services_id, house_for_rent_id, custom_value)
+                VALUES ('null', '$row', '$casaId', '$none')";
+                $resultado = $cnx->prepare($sql);
+                $resultado->execute();
+            }
+        }
+        return true;
+    }
+
+    public static function GetPensiones(){
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        require_once (__DIR__."/../entidad/Pension.php");
+        $sql = "SELECT * FROM house_for_rent WHERE 1";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            $lista = $resultado->fetchAll();
+            return $lista;
+        }
+    }
 }
 
 ?>

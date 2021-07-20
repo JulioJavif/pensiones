@@ -326,6 +326,19 @@
 <script src="../../plugins/google-map/gmap.js"></script>
 <script src="../../js/script.js"></script>
 
+<?php
+if (isset($_GET["success"])) {
+  $var = $_GET["success"];
+  if ($var == 1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Registrado!', 'Casa registrada correctamente!', 'success');
+      });
+    </script>";
+  }
+}
+?>
+
 </body>
 
 </html>
