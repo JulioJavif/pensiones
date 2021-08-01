@@ -1,13 +1,13 @@
 <?php
 if (isset($_POST)) {
-    if(isset($_POST["direccion"]) 
-    && isset($_POST["barrio"]) 
-    && isset($_POST["descripcion"]) 
+    if(isset($_POST["direccion"]) && !empty($_POST["direccion"]) 
+    && isset($_POST["barrio"]) && !empty($_POST["barrio"]) 
+    && isset($_POST["descripcion"]) && !empty($_POST["descripcion"])
     /*&& isset($_FILES["file"])*/){
 
-        if (isset($_POST["valorhabitacion"])
-        && isset($_POST["descripcion2"])
-        && isset($_POST["capacidadhabitacion"])
+        if (isset($_POST["valorhabitacion"]) && !empty($_POST["valorhabitacion"])
+        && isset($_POST["descripcion2"]) && !empty($_POST["descripcion2"])
+        && isset($_POST["capacidadhabitacion"]) && !empty($_POST["capacidadhabitacion"])
         /*&& isset($_FILES["file2"])*/) {
             
             $servicios = array('aire'=>0, 'aseo'=>0, 'alimentacion'=>0, 'cocina'=>0, 'lavado'=>0);
@@ -104,5 +104,6 @@ if (isset($_POST)) {
 }else {
     echo "Error no hay POST";
 }
-
+header("Location:/../pensiones/vista/usuario/AddPension.php?success=2");
+exit();
 ?>

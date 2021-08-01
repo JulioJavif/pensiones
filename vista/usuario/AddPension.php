@@ -335,6 +335,12 @@ if (isset($_GET["success"])) {
         swal('Registrado!', 'Casa registrada correctamente!', 'success');
       });
     </script>";
+  }else if ($var == 2) {
+    echo "<script>
+    document.addEventListener('DOMContentLoaded', function(event) {
+      swal('Error!', 'No fue posible registrar, llena todos los campos!', 'error');
+    });
+  </script>";
   }
 }
 ?>
