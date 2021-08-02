@@ -107,6 +107,28 @@ class PensionDAO{
             return $lista;
         }
     }
+
+    public static function GetPensionesAdmin(){
+        $id = $_SESSION['id'];
+
+        require_once (__DIR__."/../entidad/Pension.php");
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $sql = "SELECT * FROM house_for_rent WHERE $id = owner_user_id";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            $lista = $resultado->fetchAll();
+            return $lista;
+        }
+        return null;
+    }
+
+    public static function GetPensionesAdminByID($id){
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+        
+    }
 }
 
 ?>

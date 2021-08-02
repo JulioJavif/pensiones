@@ -44,7 +44,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="index.php">
 						<img src="images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -102,7 +102,7 @@
 <!--===========================================
 =            Popular deals section            =
 ============================================-->
-
+<!--
 <section class="popular-deals section bg-gray">
 	<div class="container">
 		<div class="row">
@@ -114,15 +114,15 @@
 			</div>
 		</div>
 		<div class="row">
-			<!-- offer 01 -->
+			<!-- offer 01 --
 			<div class="col-lg-12">
 				<div class="trending-ads-slide">
 					<div class="col-sm-12 col-lg-4">
-						<!-- product card -->
+						<!-- product card --
 <div class="product-item bg-light">
 	<div class="card">
 		<div class="thumb-content">
-			<!-- <div class="price">$200</div> -->
+			<!-- <div class="price">$200</div> --
 			<a href="single.html">
 				<img class="card-img-top img-fluid" src="images/products/Icono.png" alt="Card image cap">
 			</a>
@@ -155,11 +155,11 @@
 
 					</div>
 					<div class="col-sm-12 col-lg-4">
-						<!-- product card -->
+						<!-- product card --
 <div class="product-item bg-light">
 	<div class="card">
 		<div class="thumb-content">
-			<!-- <div class="price">$200</div> -->
+			<!-- <div class="price">$200</div> --
 			<a href="single.html">
 				<img class="card-img-top img-fluid" src="images/products/Icono.png" alt="Card image cap">
 			</a>
@@ -192,11 +192,11 @@
 
 					</div>
 					<div class="col-sm-12 col-lg-4">
-						<!-- product card -->
+						<!-- product card --
 <div class="product-item bg-light">
 	<div class="card">
 		<div class="thumb-content">
-			<!-- <div class="price">$200</div> -->
+			<!-- <div class="price">$200</div> --
 			<a href="single.html">
 				<img class="card-img-top img-fluid" src="images/products/Icono.png" alt="Card image cap">
 			</a>
@@ -229,11 +229,11 @@
 
 					</div>
 					<div class="col-sm-12 col-lg-4">
-						<!-- product card -->
+						<!-- product card --
 <div class="product-item bg-light">
 	<div class="card">
 		<div class="thumb-content">
-			<!-- <div class="price">$200</div> -->
+			<!-- <div class="price">$200</div> --
 			<a href="single.html">
 				<img class="card-img-top img-fluid" src="images/products/Icono.png" alt="Card image cap">
 			</a>
@@ -272,7 +272,7 @@
 		</div>
 	</div>
 </section>
-
+-->
 
 
 <!--==========================================
