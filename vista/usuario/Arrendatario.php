@@ -163,7 +163,6 @@
                   </div>
                 </td>
               </tr>
-              <tr>
 
               <td class="product-thumb">
                   <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
@@ -192,7 +191,7 @@
                   </div>
                 </td>
               </tr>
-              <tr>
+
               <td class="product-thumb">
                   <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
                 <td class="product-details">

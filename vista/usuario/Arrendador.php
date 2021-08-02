@@ -71,6 +71,7 @@
 									<a class="dropdown-item" href="#">Agregar una casa nueva</a>
 									<a class="dropdown-item" href="EditCasa.php">Editar casa</a>
 									<a class="dropdown-item" href="CitasArrendador.php">Ver citas</a>
+
 								</div>
 							</li>
 						</ul>

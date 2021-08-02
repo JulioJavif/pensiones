@@ -9,18 +9,21 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
                         header("Location:/../pensiones/vista/usuario/login.php?error=1");
                         exit();
                 }
+                $id = $resultado;
                 $resultado = UsuarioDAO::buscarUsuariobyId($resultado);
                 if ($resultado != null) {
                         if ($resultado["user_type"]==1) {
                                 $_SESSION['type'] = $resultado["user_type"];
                                 $_SESSION['nombre'] = $resultado["nombre"];
                                 $_SESSION['apellido'] = $resultado["apellido"];
+                                $_SESSION['id'] = $id;
                                 header("Location:/../pensiones/vista/usuario/Arrendador.php");
                                 exit();
                         }else if ($resultado["user_type"]==2) {
                                 $_SESSION['type'] = $resultado["user_type"];
                                 $_SESSION['nombre'] = $resultado["nombre"];
                                 $_SESSION['apellido'] = $resultado["apellido"];
+                                $_SESSION['id'] = $id;
                                 header("Location:/../pensiones/vista/usuario/Arrendatario.php");
                                 exit();
                         }else {
