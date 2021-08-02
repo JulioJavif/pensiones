@@ -12,7 +12,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agregar Casa</title>
+  <title>Editar</title>
   
   <!-- FAVICON -->
   <link href="../../img/favicon.png" rel="shortcut icon">
@@ -86,26 +86,44 @@
 		</div>
 	</div>
 </section>
-
+<?php
+require_once (__DIR__."/../../control/accion/act_getpension.php");
+$pension = PensionDAO::GetPensionesAdminByID($_GET["ref"]);
+if ($pension == null) {
+  header("Location:/../pensiones/vista/usuario/login.php");
+  exit();
+}
+$habitacion = PensionDAO::GetHabitacionById($_GET["ref"]);
+$path = PensionDAO::GetImagesPensionByID($_GET["ref"]);
+?>
 <section class="bg-gray py-5">
     <div class="container">
-        <form action="../../control/accion/act_nuevacasa.php" method="POST" enctype="multipart/form-data">
+        <form action="../../control/accion/act_updatepension.php" method="POST" enctype="multipart/form-data">
             <!-- Post Your ad start -->
             <fieldset class="border border-gary p-4 mb-5">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3>Agregar casa</h3>
+                            <h3>Editar casa</h3>
                         </div>
                         <div class="col-lg-6">
                             <h6 class="font-weight-bold pt-4 pb-1">Dirección: <strong>*</strong></h6>
-                            <input name="direccion" id="direccion" type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Escriba la dirección aquí">
+                            <?php echo '<input name="direccion" id="direccion" type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Escriba la dirección aquí" value="'.$pension["address"].'">'?>
                             <h6 class="font-weight-bold pt-4 pb-1">Barrio: <strong>*</strong></h6>
-                            <input name="barrio" id="barrio" type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Escriba el barrio aquí">
+                            <?php echo '<input name="barrio" id="barrio" type="text" class="border w-100 p-2 bg-white text-capitalize" placeholder="Escriba el barrio aquí" value="'.$pension["neighborhood"].'">'?>
                             <h6 class="font-weight-bold pt-4 pb-1">Descripción: <strong>*</strong></h6>
-                            <textarea name="descripcion" id="descripcion" class="border p-3 w-100" rows="7" placeholder="Breve descripción de la casa"></textarea>
+                            <?php echo '<textarea name="descripcion" id="descripcion" class="border p-3 w-100" rows="7" placeholder="Breve descripción de la casa">'.$pension["description"].'</textarea>'?>
                         </div>
                         <div class="col-lg-6">
-                            <div class="choose-file text-center my-4 py-4 rounded">
+                          <div class="">
+                            <?php 
+                            foreach($path as $dir){
+                            echo '<div class="product-slider-item my-4" data-image="'.$dir["path"].'">
+                                    <img class="img-fluid w-10" src="'.$dir["path"].'" alt="'.$dir["name"].'" >
+                                  </div>';
+                            }
+                            ?>
+					                </div>
+                          <div class="choose-file text-center my-4 py-4 rounded">
                                 <label for="file-upload">
                                     <span class="d-block font-weight-bold text-dark">Sube una imagen de tu casa</span>
                                     <span class="d-block"></span>
@@ -114,7 +132,7 @@
                                     <input type="file" class="" id="file-upload" name="file1">
                                     
                                 </label>
-                            </div>
+                          </div>
                         </div>
                     </div>
             </fieldset>
@@ -128,70 +146,16 @@
                     </div>
                     <div class="col-lg-6">
                       <h6 class="font-weight-bold pt-4 pb-1">Valor de las habitaciones</h6>
-                      <input type="number" class="border w-100 p-2" name="valorhabitacion">
+                      <?php echo '<input type="number" class="border w-100 p-2" name="valorhabitacion" value="'.$habitacion["rental_price"].'">'?>
                       <h6 class="font-weight-bold pt-4 pb-1">Descripción: <strong>*</strong></h6>
-                      <textarea name="descripcion2" id="descripcion" class="border p-3 w-100" rows="7" placeholder="Breve descripción de las habitaciones"></textarea>
+                      <?php echo '<textarea name="descripcion2" id="descripcion" class="border p-3 w-100" rows="7" placeholder="Breve descripción de las habitaciones">'.$habitacion["description"].'</textarea>'?>
                     </div>
                     <div class="col-lg-6">
                       <h6 class="font-weight-bold pt-4 pb-1">Capacidad de la habitación</h6>
-                      <input type="number" class="border w-100 p-2" name="capacidadhabitacion">
-                      <!--<div class="choose-file text-center my-4 py-4 rounded">
-                        <label for="file-upload">
-                          <span class="d-block font-weight-bold text-dark">Sube una imagen de las habitaciones</span>
-                          <span class="d-block"></span>
-                          <!--<span class="d-block btn bg-primary text-white my-3 select-files">Selecciona archivo</span>--
-                          <span class="d-block">Tamaño máximo del archivo: 750 KB</span>
-                          <input type="file" class="" id="file-upload" name="file2">
-                        </label>
-                      </div>-->
+                      <?php echo '<input type="number" class="border w-100 p-2" name="capacidadhabitacion" value="'.$habitacion["capacity"].'">'?>
                     </div>
                   </div>
             </fieldset>
-            <!-- seller-information end-->
-
-            <!-- ad-feature start -->
-            <!--<fieldset class="border bg-white p-4 my-5 ad-feature bg-gray">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3 class="pb-3">Qué servicios ofrece
-                            <!--<span class="float-right"><a class="text-right font-weight-normal text-success" href="#">What
-                                    is featured ad ?</a></span>--
-                        </h3>
-                    </div>
-                    <div class="col-lg-6 my-3">
-                        <span class="mb-3 d-block">Incluídos en el valor:</span>
-                        <ul>
-                            <li>
-                                <input type="checkbox" id="incluido" name="aireacondicionado" value="1">
-                                <label for="aireacondicionado" class="font-weight-bold text-dark py-1">Aire acondicionado</label>
-                                <!--<span>$00.00</span>--
-                            </li>
-                            <li>
-                                <input type="checkbox" id="incluido" name="aseohabitacion" value="2">
-                                <label for="aseohabitacion" class="font-weight-bold text-dark py-1">Aseo a la habitación</label>
-                                <!--<span>$59.00</span>--
-                            </li>
-                            <li>
-                                <input type="checkbox" id="incluido" name="alimentacion" value="3">
-                                <label for="alimentacion" class="font-weight-bold text-dark py-1">Alimentación</label>
-                                <!--<span>$79.00</span>--
-                            </li>
-                            <li>
-                                <input type="checkbox" name="cocina" id="cocina" value="4">
-                                <label for="cocina" class="font-weight-bold text-dark py-1">Cocina</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="lavado" id="lavado" value="5">
-                                <label for="lavado" class="font-weight-bold text-dark py-1">Lavado de ropa</label>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 my-3">
-                    </div>
-                </div>
-            </fieldset>
-            <!-- ad-feature start -->
-
             <!-- submit button -->
             <button type="submit" class="btn btn-primary d-block mt-2">Guardar</button>
         </form>
@@ -232,39 +196,8 @@
       <!-- Link list -->
       <div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0">
         <div class="block">
-          <!--
-            <h4>Admin Pages</h4>
-            <ul>
-            <li><a href="category.html">Category</a></li>
-            <li><a href="single.html">Single Page</a></li>
-            <li><a href="store.html">Store Single</a></li>
-            <li><a href="single-blog.html">Single Post</a>
-            </li>
-            <li><a href="blog.html">Blog</a></li>
-
-          </ul>
-           -->
         </div>
       </div>
-      <!--
-      <!-- Promotion --
-      <div class="col-lg-4 col-md-7">
-        <!-- App promotion --
-        <div class="block-2 app-promotion">
-          <div class="mobile d-flex">
-            <a href="">
-              <!-- Icon -
-              <img src="images/footer/phone-icon.png" alt="mobile-icon">
-            </a>
-            <p>Get the Dealsy Mobile App and Save more</p>
-          </div>
-          <div class="download-btn d-flex my-3">
-            <a href="#"><img src="images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-            <a href="#" class=" ml-3"><img src="images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
-          </div>
-        </div>
-      </div>
-    -->
     </div>
   </div>
   <!-- Container End -->
@@ -316,15 +249,9 @@ if (isset($_GET["success"])) {
   if ($var == 1) {
     echo "<script>
       document.addEventListener('DOMContentLoaded', function(event) {
-        swal('Registrado!', 'Casa registrada correctamente!', 'success');
+        swal('Registrado!', 'Actualización correcta!', 'success');
       });
     </script>";
-  }else if ($var == 2) {
-    echo "<script>
-    document.addEventListener('DOMContentLoaded', function(event) {
-      swal('Error!', 'No fue posible registrar, llena todos los campos!', 'error');
-    });
-  </script>";
   }
 }
 ?>

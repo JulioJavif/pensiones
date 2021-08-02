@@ -78,7 +78,7 @@ class PensionDAO{
         $cnx = conectar::conectarDB();
 
         $casaId = PensionDAO::casaID($userID, $direccion);
-        foreach ($servicios as $key => $value) {
+        foreach ($servicios as $value) {
             $sql = "SELECT id FROM services WHERE services.key = $value";
             $resultado = $cnx->prepare($sql);
             if ($resultado->execute()) {
@@ -92,7 +92,25 @@ class PensionDAO{
                 $resultado->execute();
             }
         }
-        return true;
+    }
+
+
+    //Gets
+    public static function GuardarHabitacion($id, $direccion, $valor, $descripcion, $capacidad){
+        $casaId = PensionDAO::casaID($id, $direccion);
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        if ($casaId != null) {
+            $sql = "INSERT INTO house_room
+            (id, house_for_rent_id, description, capacity, rental_price)
+            VALUES ( 'null', '$casaId', '$descripcion', '$capacidad', '$valor')";
+            $resultado = $cnx->prepare($sql);
+            if ($resultado->execute()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static function GetPensiones(){
@@ -128,6 +146,101 @@ class PensionDAO{
         require_once (__DIR__."/conexion.php");
         $cnx = conectar::conectarDB();
         
+        $sql = "SELECT * FROM house_for_rent WHERE house_for_rent.owner_user_id = ".$_SESSION['id']." and house_for_rent.id = $id";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            $info = $resultado->fetch();
+            return $info;
+        }
+        return null;
+    }
+
+    public static function GetImagesPensionByID($id){
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $sql = "SELECT file.path, file.name FROM file
+                inner join house_file
+                on house_file.house_for_rent_id = $id and file.id = house_file.file_id
+                order by file.id asc";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            $path = $resultado->fetchAll();
+            return $path;
+        }
+        return null;
+    }
+
+    public static function GetHabitacionById($id){
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $sql = "SELECT description, capacity, rental_price FROM house_room 
+        WHERE house_room.house_for_rent_id = $id";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            $habitacion = $resultado->fetch();
+            return $habitacion;
+        }
+        return null;
+    }
+
+
+    //Updates
+    public static function UpdateCasa(Pension $pension, $userID){
+        $casaId = PensionDAO::casaID($userID, $pension->getDireccion());
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+        $descripcion = $pension->getDescripcion();
+        $direccion = $pension->getDireccion();
+        $barrio = $pension->getBarrio();
+
+        $sql = "UPDATE house_for_rent SET 
+                description = '$descripcion', 
+                address = '$direccion', 
+                neighborhood = '$barrio'
+                WHERE house_for_rent.id = $casaId";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static function UpdateHabitacion($userID, $direccion, $valor, $descripcion, $capacidad){
+        $casaId = PensionDAO::casaID($userID, $direccion);
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $sql = "UPDATE house_room SET 
+                description= '$descripcion', 
+                capacity= '$capacidad', 
+                rental_price= '$valor' 
+                WHERE house_room.house_for_rent_id=$casaId";
+        $resultado = $cnx->prepare($sql);
+        return $resultado->execute();
+    }
+
+    public static function UpdateImagen($path, $originalnombre, $nombre, $userID, $direccion){
+        $casaId = PensionDAO::casaID($userID, $direccion);
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $sql = "SELECT * FROM house_file WHERE house_file.house_for_rent_id=$casaId";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            $info = $resultado->fetch();
+            $id = $info["file_id"];
+            $sql = "UPDATE file SET 
+                    original_name= '$originalnombre', 
+                    name= '$nombre', 
+                    type= 'jpg', 
+                    path= '$path' 
+                    WHERE file.id=$id";
+            $resultado = $cnx->prepare($sql);
+            return $resultado->execute();
+        }
+        return false;
     }
 }
 

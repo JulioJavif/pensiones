@@ -3,11 +3,7 @@
   if (!isset($_SESSION['nombre'])) {
     header('location: login.php');
   }
-
-  require_once "../../control/accion/act_getpension.php";
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +12,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio | Arrendador</title>
+  <title>Editar</title>
   
   <!-- FAVICON -->
   <link href="../../img/favicon.png" rel="shortcut icon">
@@ -36,6 +32,7 @@
   <!-- CUSTOM CSS -->
   <link href="../../css/style.css" rel="stylesheet">
 
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -47,7 +44,8 @@
 
 <body class="body-wrapper">
 
-<section class="bg-gray">
+
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -62,17 +60,16 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link bg-gray" href="arrendador.php">Inicio</a>
+								<a class="nav-link" href="arrendador.php">Inicio</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle bg-gray" data-toggle="dropdown" href="">Menú<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Menú<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
 									<a class="dropdown-item" href="#">Chat</a>
-									<!--<a class="dropdown-item" href="#">Ver citas</a>-->
 								</div>
 							</li>
 						</ul>
@@ -89,83 +86,32 @@
 		</div>
 	</div>
 </section>
-<!--===================================
-=            Store Section            =
-====================================-->
 
-<section class="section bg-gray">
-	<!-- Container Start -->
-	<div class="container">
-		<div class="row">
-			<!-- Left sidebar -->
-			<div class="col-md-8">
-				<div class="product-details">
-          <?php 
-          $info = PensionDAO::GetPensionesAdminByID($_GET["ref"]);
-          $path = PensionDAO::GetImagesPensionByID($_GET["ref"]);
-          $habitacion = PensionDAO::GetHabitacionById($_GET["ref"]);
-          if ($info == null) {
-            header("Location:/../pensiones/vista/usuario/login.php");
-            exit();
-          }
-          echo '<h1 class="product-title">'.$info["neighborhood"].' '.$info["address"].'</h1>';
-          ?>
-					<!-- product slider -->
-					<div class="">
-            <?php 
-            foreach($path as $dir){
-              echo '<div class="product-slider-item my-4" data-image="'.$dir["path"].'">
-                      <img class="img-fluid w-10" src="'.$dir["path"].'" alt="'.$dir["name"].'" >
-                    </div>';
-            }
-            ?>
-					</div>
-					<!-- product slider -->
-
-					<div class="content mt-5 pt-5">
-						<ul class="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
-								 aria-selected="true">Detalles</a>
-							</li>
-						</ul>
-						<div class="tab-content" id="pills-tabContent">
-							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-								<h3 class="tab-title">Descripción de la casa</h3>
-                <?php 
-                echo '<p>'.$info["description"].'</p>';
-                ?>
-                <h3 class="tab-title">Capacidad de habitaciones</h3>
-                <p><?php echo $habitacion["capacity"];?> personas</p>
-                <h3 class="tab-title">Descripción de habitaciones</h3>
-                <?php 
-                echo '<p>'.$habitacion["description"].'</p>';
-                ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="sidebar">
-					<div class="widget price text-center">
-						<h4>Precio:</h4>
-						<p><?php echo $habitacion["rental_price"];?></p>
-					</div>
-					<!-- User Profile widget -->
-					<div class="widget user text-center">
-						<h4><a href=""><?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"] ?></a></h4>
-						<ul class="list-inline mt-20">
-							<?php echo'<li class="list-inline-item"><a href="EditarPension.php?ref='.$_GET["ref"].'" class="btn btn-contact d-inline-block  btn-primary px-lg-5 my-1 px-md-3">Editar</a></li>'?>
-							<?php echo'<li class="list-inline-item"><a href="EliminarPension.php?ref='.$_GET["ref"].'" class="btn btn-offer d-inline-block btn-primary ml-n1 my-1 px-lg-4 px-md-3">Eliminar pensión</a></li>'?>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	<!-- Container End -->
+<section class="bg-gray py-5">
+    <div class="container">
+        <?php echo'<form action="../../control/accion/act_EliminarPension.php?ref='.$_GET["ref"].'" method="POST" enctype="multipart/form-data">'?>
+            <!-- Post Your ad start -->
+            <fieldset class="border border-gary p-4 mb-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3>Eliminar Casa</h3>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Seguro de eliminar?<strong>*</strong></h6>
+                            <input type="radio" id="si" name="eleccion" value="1">
+                            <label for="si">Si</label><br>
+                            <input type="radio" id="no" name="eleccion" value="2">
+                            <label for="no">No</label><br>
+                        </div>
+                        <div class="col-lg-6">
+                        </div>
+                    </div>
+            </fieldset>
+            <!-- Post Your ad end -->
+            <!-- submit button -->
+            <button type="submit" class="btn btn-primary d-block mt-2">Guardar</button>
+        </form>
+    </div>
 </section>
 <!--============================
 =            Footer            =
@@ -202,39 +148,8 @@
       <!-- Link list -->
       <div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0">
         <div class="block">
-          <!--
-            <h4>Admin Pages</h4>
-            <ul>
-            <li><a href="category.html">Category</a></li>
-            <li><a href="single.html">Single Page</a></li>
-            <li><a href="store.html">Store Single</a></li>
-            <li><a href="single-blog.html">Single Post</a>
-            </li>
-            <li><a href="blog.html">Blog</a></li>
-
-          </ul>
-           -->
         </div>
       </div>
-      <!--
-      <!-- Promotion --
-      <div class="col-lg-4 col-md-7">
-        <!-- App promotion --
-        <div class="block-2 app-promotion">
-          <div class="mobile d-flex">
-            <a href="">
-              <!-- Icon -
-              <img src="images/footer/phone-icon.png" alt="mobile-icon">
-            </a>
-            <p>Get the Dealsy Mobile App and Save more</p>
-          </div>
-          <div class="download-btn d-flex my-3">
-            <a href="#"><img src="images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-            <a href="#" class=" ml-3"><img src="images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
-          </div>
-        </div>
-      </div>
-    -->
     </div>
   </div>
   <!-- Container End -->
@@ -250,17 +165,8 @@
           <p>Copyright © <script>
               var CurrentYear = new Date().getFullYear()
               document.write(CurrentYear)
-            </script>. All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com" target="_blank">themefisher.com</a></p>
+            </script>. Todos los derechos reservados.</p>
         </div>
-      </div>
-      <div class="col-sm-6 col-12">
-        <!-- Social Icons -->
-        <ul class="social-media-icons text-right">
-          <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-vimeo" href=""></a></li>
-        </ul>
       </div>
     </div>
   </div>
@@ -289,7 +195,18 @@
 <script src="../../plugins/google-map/gmap.js"></script>
 <script src="../../js/script.js"></script>
 
-<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+<?php
+if (isset($_GET["success"])) {
+  $var = $_GET["success"];
+  if ($var == 1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Registrado!', 'Actualización correcta!', 'success');
+      });
+    </script>";
+  }
+}
+?>
 
 </body>
 

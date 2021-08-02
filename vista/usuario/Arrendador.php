@@ -62,14 +62,12 @@
 								<a class="nav-link bg-gray" href="arrendador.php">Inicio</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle bg-gray" data-toggle="dropdown" href="">Mis casas<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle bg-gray" data-toggle="dropdown" href="">Menú<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
-									<a class="dropdown-item" href="#">Editar casa</a>
-									<a class="dropdown-item" href="#">Eliminar casa</a>
 									<a class="dropdown-item" href="#">Chat</a>
 									<!--<a class="dropdown-item" href="#">Ver citas</a>-->
 								</div>
@@ -188,7 +186,7 @@
                       </a>';
                         echo '</li>
                         <li class="list-inline-item">
-                          <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="'.$pension["id"].'">
+                          <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="EditarPension.php?ref='.$pension["id"].'">
                             <i class="fa fa-pencil"></i>
                           </a>
                         </li>
@@ -367,6 +365,13 @@ if (isset($_GET["error"])) {
     echo "<script>
       document.addEventListener('DOMContentLoaded', function(event) {
         swal('Error', 'Llene todos los campos');
+      });
+    </script>";
+  }
+  else if ($error == -1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'No se pudo completar la operación');
       });
     </script>";
   }
