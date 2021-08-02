@@ -3,6 +3,7 @@
   if (!isset($_SESSION['nombre'])) {
     header('location: login.php');
   }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,11 +68,10 @@
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
-									<a class="dropdown-item" href="#">Editar casa</a>
-									<a class="dropdown-item" href="#">Eliminar casa</a>
-									<a class="dropdown-item" href="#">Chat</a>
-									<a class="dropdown-item" href="#">Ver citas</a>
+									<a class="dropdown-item" href="#">Agregar una casa nueva</a>
+									<a class="dropdown-item" href="EditCasa.php">Editar casa</a>
+									<a class="dropdown-item" href="CitasArrendador.php">Ver citas</a>
+
 								</div>
 							</li>
 						</ul>

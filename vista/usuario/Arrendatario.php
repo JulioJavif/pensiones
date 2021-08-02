@@ -69,8 +69,7 @@
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="#">Historial de casas</a>
 									<a class="dropdown-item" href="search.php">Buscar casa</a>
-									<a class="dropdown-item" href="#">Chat</a>
-									<a class="dropdown-item" href="#">Citas</a>
+									<a class="dropdown-item" href="CitasArrendatario.php">Citas</a>
 								</div>
 							</li>
 						</ul>
@@ -116,6 +115,7 @@
               <li class="active"><a href="#"><i class="fa fa-star"></i> Casas favoritas</a></li>
               <li><a href="#"><i class="fa fa-search-plus"></i> Casas más buscadas <span>5</span></a></li>
               <li><a href="#"><i class="fa fa-bookmark"></i> Arrendadas anteriormente<span>12</span></a></li>
+            </ul>
           </div>
           
         </div>
