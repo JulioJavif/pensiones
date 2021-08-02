@@ -2700,4 +2700,10 @@ form textarea {
   text-decoration: none;
 }
 
+.scroll{
+  overflow-y:scroll;
+  height: 400px;
+  width: 400px;
+}
+
 /*# sourceMappingURL=maps/style.css.map */

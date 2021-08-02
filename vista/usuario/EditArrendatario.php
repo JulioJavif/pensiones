@@ -71,8 +71,7 @@
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="#">Historial de casas</a>
 									<a class="dropdown-item" href="search.php">Buscar casa</a>
-									<a class="dropdown-item" href="#">Chat</a>
-									<a class="dropdown-item" href="#">Citas</a>
+									<a class="dropdown-item" href="CitasArrendatario.php">Citas</a>
 								</div>
 							</li>
 						</ul>
