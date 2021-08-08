@@ -63,15 +63,14 @@
 								<a class="nav-link bg-gray" href="arrendador.php">Inicio</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle bg-gray" data-toggle="dropdown" href="">Mis casas<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle bg-gray" data-toggle="dropdown" href="">Menú<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Agregar una casa nueva</a>
-									<a class="dropdown-item" href="EditCasa.php">Editar casa</a>
-									<a class="dropdown-item" href="CitasArrendador.php">Ver citas</a>
-
+									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
+									<a class="dropdown-item" href="CitasArrendador">Contactar</a>
+									<!--<a class="dropdown-item" href="#">Ver citas</a>-->
 								</div>
 							</li>
 						</ul>
@@ -111,14 +110,14 @@
             ?>
             <a href="EditArrendador.php" class="btn btn-main-sm">Editar perfil</a>
           </div>
-          <!-- Dashboard Links -->
+          <!-- Dashboard Links --
           <div class="widget user-dashboard-menu">
             <ul>
               <li class="active"><a href="#"><i class="fa fa-home"></i> Mis casas</a></li>
               <li><a href="#"><i class="fa fa-search-plus"></i> Casas más buscadas <span>5</span></a></li>
               <li><a href="#"><i class="fa fa-building"></i>Casas llenas <span>12</span></a></li>
               <li><a href="#"><i class="fa fa-check"></i> Casas disponibles<span>23</span></a></li>
-          </div>
+          </div>-->
 
           <!-- delete-account modal -->
           						  <!-- delete account popup modal start-->
@@ -164,202 +163,45 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-
-                <td class="product-thumb">
-                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
-                <td class="product-details">
-                  <h3 class="title">Pension 1</h3>
-                  <span class="add-id"><strong>Dirección:</strong>Calle falsa #123</span>
-                  <span><strong>Publicación: </strong><time> Junio 27, 2017</time> </span>
-                  <span class="status active"><strong>Estado</strong>Disponible</span>
-                  <span class="location"><strong>Barrio</strong>Almendros</span>
-                </td>
-                <td class="product-category"><span class="categories status active"></span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-
-              <td class="product-thumb">
-                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
-                <td class="product-details">
-                  <h3 class="title">Pension 2</h3>
-                  <span class="add-id"><strong>Dirección:</strong>Calle siempre viva #123</span>
-                  <span><strong>Publicación: </strong><time> Junio 28, 2017</time> </span>
-                  <span class="status"><strong>Estado</strong>No Disponible</span>
-                  <span class="location"><strong>Barrio</strong>Pescaito</span>
-                </td>
-                <td class="product-category"><span class="categories "></span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-              <td class="product-thumb">
-                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
-                <td class="product-details">
-                  <h3 class="title">Pension 3</h3>
-                  <span class="add-id"><strong>Dirección:</strong>Calle llorona #123</span>
-                  <span><strong>Publicación: </strong><time> Junio 29, 2017</time> </span>
-                  <span class="status"><strong>Estado</strong>No Disponible</span>
-                  <span class="location"><strong>Barrio</strong>Villa Marbella</span>
-                </td>
-                <td class="product-category"><span class="categories "></span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-
-              <td class="product-thumb">
-                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
-                <td class="product-details">
-                  <h3 class="title">Pension 4</h3>
-                  <span class="add-id"><strong>Dirección:</strong>Calle siempre viva #123</span>
-                  <span><strong>Publicación: </strong><time> Junio 29, 2017</time> </span>
-                  <span class="status"><strong>Estado</strong>Disponible</span>
-                  <span class="location"><strong>Barrio</strong>Pescaito</span>
-                </td>
-                <td class="product-category"><span class="categories "></span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-
-              <td class="product-thumb">
-                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
-                <td class="product-details">
-                  <h3 class="title">Pension 5</h3>
-                  <span class="add-id"><strong>Dirección:</strong>Calle Brisa Loca #123</span>
-                  <span><strong>Publicación: </strong><time> Junio 29, 2017</time> </span>
-                  <span class="status"><strong>Estado</strong>No Disponible</span>
-                  <span class="location"><strong>Barrio</strong>Pescaito</span>
-                </td>
-                <td class="product-category"><span class="categories "></span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="category.html">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Borrar casa" href="">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              </tr>
+              <?php 
+              require_once (__DIR__."/../../control/accion/act_loadpension.php");
+              $lista = PensionDAO::GetPensionesAdmin();
+              if ($lista != null) {
+                foreach ($lista as $pension){
+                  echo '<tr>
+                  <td class="product-thumb">
+                    <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description">
+                  </td>
+                  <td class="product-details">';
+                  echo '<span class="add-id"><strong>Dirección:</strong>'.$pension["address"].'</span>';
+                  echo '<span class="location"><strong>Barrio</strong>'.$pension["neighborhood"].'</span>';
+                  echo '</td>
+                  <td class="product-category"><span class="categories status active"></span>
+                  </td>
+                  <td class="action" data-title="Action">
+                    <div class="">
+                      <ul class="list-inline justify-content-center">
+                        <li class="list-inline-item">';
+                        echo '<a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="verPension.php?ref='.$pension["id"].'">
+                        <i class="fa fa-eye"></i>
+                      </a>';
+                        echo '</li>
+                        <li class="list-inline-item">
+                          <a class="edit" data-toggle="tooltip" data-placement="top" title="Editar casa" href="EditarPension.php?ref='.$pension["id"].'">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>';
+                }
+              }
+              ?>
             </tbody>
           </table>
 
         </div>
-
-        <!-- pagination -->
-        <div class="pagination justify-content-center">
-					<nav aria-label="Page navigation example">
-						<ul class="pagination">
-							<li class="page-item">
-								<a class="page-link" href="#" aria-label="Previous">
-									<span aria-hidden="true">&laquo;</span>
-									<span class="sr-only">Previous</span>
-								</a>
-							</li>
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item active"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item">
-								<a class="page-link" href="#" aria-label="Next">
-									<span aria-hidden="true">&raquo;</span>
-									<span class="sr-only">Next</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-        <!-- pagination -->
 
       </div>
     </div>
@@ -500,6 +342,13 @@ if (isset($_GET["error"])) {
     echo "<script>
       document.addEventListener('DOMContentLoaded', function(event) {
         swal('Error', 'Llene todos los campos');
+      });
+    </script>";
+  }
+  else if ($error == -1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'No se pudo completar la operación');
       });
     </script>";
   }

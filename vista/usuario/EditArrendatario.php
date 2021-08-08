@@ -64,14 +64,13 @@
 								<a class="nav-link" href="arrendatario.php">Inicio</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Mis casas<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Menú<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Historial de casas</a>
 									<a class="dropdown-item" href="search.php">Buscar casa</a>
-									<a class="dropdown-item" href="CitasArrendatario.php">Citas</a>
+									<a class="dropdown-item" href="CitasArrendatario.php">Contactar</a>
 								</div>
 							</li>
 						</ul>
@@ -108,7 +107,7 @@
 					echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
 					echo "<p>Arrendatario</p>";
 					?>
-					<a href="EditArrendatario.php" class="btn btn-main-sm">Eliminar cuenta</a>
+					<a href="EliminarUsuario.php" class="btn btn-main-sm">Eliminar cuenta</a>
 				</div>
 					<!-- Dashboard Links -->
 				</div>
