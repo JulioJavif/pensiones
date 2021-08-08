@@ -69,7 +69,7 @@
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
-									<a class="dropdown-item" href="#">Chat</a>
+									<a class="dropdown-item" href="CitasArrendador">Contactar</a>
 								</div>
 							</li>
 						</ul>

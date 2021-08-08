@@ -67,15 +67,14 @@
                   <a class="nav-link" href="arrendador.php">Inicio</a>
                 </li>
                 <li class="nav-item dropdown dropdown-slide">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Mis casas<span><i
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Menú<span><i
                         class="fa fa-angle-down"></i></span>
                   </a>
                   <!-- Dropdown list -->
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Agregar una casa nueva</a>
-                    <a class="dropdown-item" href="EditCasa.php">Editar casa</a>
-                    <a class="dropdown-item" href="CitasArrendador.php">Ver citas</a>
-                  </div>
+									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
+									<a class="dropdown-item" href="CitasArrendador">Contactar</a>
+								</div>
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto mt-10">
@@ -103,7 +102,7 @@
       <div class="row">
         <div class="col-md-8 offset-md-2 text-center">
           <!-- Title text -->
-          <h3>Citas</h3>
+          <h3>Contactar</h3>
         </div>
       </div>
     </div>
@@ -115,7 +114,7 @@
   <section class="section">
     <div class="container">
       <div class="row">
-      <div class="col-lg-6 col-md-4">
+      <!--<div class="col-lg-6 col-md-4">
           <div class="contact-us-content p-4">
             <h5>Buzón</h5>
             <div class="list-group scroll overflow-auto">
@@ -194,26 +193,18 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-md-6">
+        -->
+        <div class="col-md-12">
           <form action="#">
             <fieldset class="p-4">
               <div class="form-group">
                 <div class="row">
-                  <div class="col-lg-6 py-2">
-                    <input type="email" placeholder="Correo" class="form-control" required>
-                  </div>
+                  
                   <div class="col-lg-6 pt-2">
                     <input type="text" placeholder="Fecha y hora de la cita *" class="form-control" required>
                   </div>
                 </div>
               </div>
-              <select name="" id="" class="form-control w-100">
-                <option value="1">Asunto de la cita</option>
-                <option value="1">Confirmacion de Visita</option>
-                <option value="1">Reserva de pensión</option>
-                <option value="1">Consulta</option>
-                <option value="1">Cambio de fecha</option>
-              </select>
               <textarea name="message" id="" placeholder="Contenido *" class="border w-100 p-3 mt-3 mt-lg-4"></textarea>
               <div class="btn-grounp">
                 <button type="submit" class="btn btn-primary mt-2 float-right">ENVIAR</button>
