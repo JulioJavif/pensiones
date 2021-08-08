@@ -2,6 +2,7 @@
   session_start();
   if (!isset($_SESSION['nombre'])) {
     header('location: login.php');
+    exit();
   }
 ?>
 <!DOCTYPE html>
@@ -135,7 +136,6 @@
             </thead>
             <tbody>
               <tr>
-
                 <td class="product-thumb">
                   <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
                 <td class="product-details">

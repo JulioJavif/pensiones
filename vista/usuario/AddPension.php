@@ -63,30 +63,13 @@
 								<a class="nav-link" href="arrendador.php">Inicio</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Mis casas<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Menú<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
-									<a class="dropdown-item" href="#">Editar casa</a>
-									<a class="dropdown-item" href="#">Eliminar casa</a>
 									<a class="dropdown-item" href="#">Chat</a>
-									<a class="dropdown-item" href="#">Ver citas</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Configuración de cuenta <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Cambiar foto de perfil</a>
-									<a class="dropdown-item" href="#">Editar número de telefono</a>
-									<a class="dropdown-item" href="#">Cambiar nombre de usuario</a>
-									<a class="dropdown-item" href="#">Verificar correo</a>
-									<a class="dropdown-item" href="#">Actualizar cuenta de respaldo</a>
-									<a class="dropdown-item" href="#">Eliminar cuenta</a>
 								</div>
 							</li>
 						</ul>
@@ -152,26 +135,27 @@
                     <div class="col-lg-6">
                       <h6 class="font-weight-bold pt-4 pb-1">Capacidad de la habitación</h6>
                       <input type="number" class="border w-100 p-2" name="capacidadhabitacion">
-                      <div class="choose-file text-center my-4 py-4 rounded">
-                                <label for="file-upload">
-                                    <span class="d-block font-weight-bold text-dark">Sube una imagen de las habitaciones</span>
-                                    <span class="d-block"></span>
-                                    <!--<span class="d-block btn bg-primary text-white my-3 select-files">Selecciona archivo</span>-->
-                                    <span class="d-block">Tamaño máximo del archivo: 750 KB</span>
-                                    <input type="file" class="" id="file-upload" name="file2">
-                                </label>
-                      </div>
+                      <!--<div class="choose-file text-center my-4 py-4 rounded">
+                        <label for="file-upload">
+                          <span class="d-block font-weight-bold text-dark">Sube una imagen de las habitaciones</span>
+                          <span class="d-block"></span>
+                          <!--<span class="d-block btn bg-primary text-white my-3 select-files">Selecciona archivo</span>--
+                          <span class="d-block">Tamaño máximo del archivo: 750 KB</span>
+                          <input type="file" class="" id="file-upload" name="file2">
+                        </label>
+                      </div>-->
+                    </div>
                   </div>
             </fieldset>
             <!-- seller-information end-->
 
             <!-- ad-feature start -->
-            <fieldset class="border bg-white p-4 my-5 ad-feature bg-gray">
+            <!--<fieldset class="border bg-white p-4 my-5 ad-feature bg-gray">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="pb-3">Qué servicios ofrece
                             <!--<span class="float-right"><a class="text-right font-weight-normal text-success" href="#">What
-                                    is featured ad ?</a></span>-->
+                                    is featured ad ?</a></span>--
                         </h3>
                     </div>
                     <div class="col-lg-6 my-3">
@@ -180,24 +164,24 @@
                             <li>
                                 <input type="checkbox" id="incluido" name="aireacondicionado" value="1">
                                 <label for="aireacondicionado" class="font-weight-bold text-dark py-1">Aire acondicionado</label>
-                                <!--<span>$00.00</span>-->
+                                <!--<span>$00.00</span>--
                             </li>
                             <li>
-                                <input type="checkbox" id="incluido" name="aseohabitacion" value="1">
+                                <input type="checkbox" id="incluido" name="aseohabitacion" value="2">
                                 <label for="aseohabitacion" class="font-weight-bold text-dark py-1">Aseo a la habitación</label>
-                                <!--<span>$59.00</span>-->
+                                <!--<span>$59.00</span>--
                             </li>
                             <li>
-                                <input type="checkbox" id="incluido" name="alimentacion" value="1">
+                                <input type="checkbox" id="incluido" name="alimentacion" value="3">
                                 <label for="alimentacion" class="font-weight-bold text-dark py-1">Alimentación</label>
-                                <!--<span>$79.00</span>-->
+                                <!--<span>$79.00</span>--
                             </li>
                             <li>
-                                <input type="checkbox" name="cocina" id="incluido" value="1">
+                                <input type="checkbox" name="cocina" id="cocina" value="4">
                                 <label for="cocina" class="font-weight-bold text-dark py-1">Cocina</label>
                             </li>
                             <li>
-                                <input type="checkbox" name="lavado" id="incluido" value="1">
+                                <input type="checkbox" name="lavado" id="lavado" value="5">
                                 <label for="lavado" class="font-weight-bold text-dark py-1">Lavado de ropa</label>
                             </li>
                         </ul>
@@ -325,6 +309,25 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
 <script src="../../plugins/google-map/gmap.js"></script>
 <script src="../../js/script.js"></script>
+
+<?php
+if (isset($_GET["success"])) {
+  $var = $_GET["success"];
+  if ($var == 1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Registrado!', 'Casa registrada correctamente!', 'success');
+      });
+    </script>";
+  }else if ($var == 2) {
+    echo "<script>
+    document.addEventListener('DOMContentLoaded', function(event) {
+      swal('Error!', 'No fue posible registrar, llena todos los campos!', 'error');
+    });
+  </script>";
+  }
+}
+?>
 
 </body>
 
