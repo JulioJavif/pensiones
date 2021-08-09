@@ -182,7 +182,7 @@ class PensionDAO{
                 FROM house_for_rent 
                 inner join user
                 on user.id = house_for_rent.owner_user_id
-                WHERE house_for_rent.id = 18";
+                WHERE house_for_rent.id = $id";
         $resultado = $cnx->prepare($sql);
         if ($resultado->execute()) {
             $info = $resultado->fetch();
