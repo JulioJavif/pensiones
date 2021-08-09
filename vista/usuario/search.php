@@ -166,7 +166,7 @@
 					</div>
 				</div>
 				<div class="col-md-9">
-					<div class="category-search-filter">
+					<!--<div class="category-search-filter">
 						<!--<div class="row">
 							<div class="col-md-6">
 								<strong>Ordenar por</strong>
@@ -177,8 +177,8 @@
 									<option value="4">Mayor precio</option>
 								</select>
 							</div>
-						</div>-->
-					</div>
+						</div>
+					</div>-->
 					<div class="product-grid-list">
 						<div class="row mt-30">
 							<?php
@@ -244,7 +244,7 @@
 							?>
 						</div>
 					</div>
-					<div class="pagination justify-content-center">
+					<!--<div class="pagination justify-content-center">
 						<nav aria-label="Page navigation example">
 							<ul class="pagination">
 								<li class="page-item">
@@ -264,7 +264,7 @@
 								</li>
 							</ul>
 						</nav>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>

@@ -129,7 +129,7 @@
 							<form action="../../control/accion/act_UpdateInfPersonal.php" method="POST">
 								<!-- Identification-->
 								<div class="form-group">
-									<label for="first-name">Cédula</label>
+									<label for="first-name">Documento</label>
 									<?php echo '<input type="number" name="dni" class="form-control" id="first-name" value="'.$usuario['dni'].'">';?>
 								</div>
 								<!-- First Name -->

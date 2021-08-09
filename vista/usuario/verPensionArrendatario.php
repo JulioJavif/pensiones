@@ -155,7 +155,7 @@
 					</div>
 					<!-- User Profile widget -->
 					<div class="widget user text-center">
-						<h4><a href=""><?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"] ?></a></h4>
+						<h4><a href=""><?php echo $info['nombre']." ".$info['apellido'] ?></a></h4>
 						<ul class="list-inline mt-20">
 							<?php echo'<li class="list-inline-item"><a href="CitasArrendatario.php?ref='.$_GET["ref"].'" class="btn btn-contact d-inline-block  btn-primary px-lg-5 my-1 px-md-3">Contactar</a></li>'?>
 						</ul>

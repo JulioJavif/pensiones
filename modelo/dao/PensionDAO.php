@@ -170,8 +170,19 @@ class PensionDAO{
     public static function GetPensionByID($id){
         require_once (__DIR__."/conexion.php");
         $cnx = conectar::conectarDB();
+
+        //SELECT * FROM house_for_rent WHERE house_for_rent.id = $id
         
-        $sql = "SELECT * FROM house_for_rent WHERE house_for_rent.id = $id";
+        $sql = "SELECT house_for_rent.id as id, 
+                user.nombre as nombre, 
+                user.apellido as apellido, 
+                house_for_rent.description as description,
+                house_for_rent.address as address,
+                house_for_rent.neighborhood as neighborhood
+                FROM house_for_rent 
+                inner join user
+                on user.id = house_for_rent.owner_user_id
+                WHERE house_for_rent.id = 18";
         $resultado = $cnx->prepare($sql);
         if ($resultado->execute()) {
             $info = $resultado->fetch();

@@ -347,7 +347,7 @@ if (isset($_GET["success"])){
   if ($success == 1) {
     echo "<script>
       document.addEventListener('DOMContentLoaded', function(event) {
-        swal('Error', 'Correo enviado');
+        swal('Hecho', 'Correo enviado');
       });
     </script>";
   }

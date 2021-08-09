@@ -59,10 +59,10 @@ if (isset($_POST['asunto']) && $_POST['asunto']!=''
 
             if (!$mail->send()) {
                 echo '\nNo se envió';
-                header("Location:/../pensiones/vista/usuario/CitasArrendatario.php?error=0");
+                header("Location:/../pensiones/vista/usuario/CitasArrendatario.php?error=0&ref=".$_GET['ref']);
                 exit();
             }else {
-                header("Location:/../pensiones/vista/usuario/CitasArrendatario.php?success=1");
+                header("Location:/../pensiones/vista/usuario/CitasArrendatario.php?success=1&ref=".$_GET['ref']);
                 exit();
             }
             //echo '\nPasa algo raro';

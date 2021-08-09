@@ -116,7 +116,7 @@
       <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
         <!-- Recently Favorited -->
         <div class="widget dashboard-container my-adslist">
-          <h3 class="widget-header">Mis casas favoritas</h3>
+          <h3 class="widget-header">Casas más recientes</h3>
           <table class="table table-responsive product-dashboard-table">
             <thead>
               <tr>
