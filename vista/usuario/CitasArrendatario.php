@@ -334,23 +334,20 @@
   <?php
 if (isset($_GET["error"])) {
   $error = $_GET["error"];
-  if ($error == 1) {
+  if ($error == 0) {
     echo "<script>
       document.addEventListener('DOMContentLoaded', function(event) {
-        swal('Error', 'Correo o contraseña invalidos');
-      });
-    </script>";
-  }else if ($error == 2) {
-    echo "<script>
-      document.addEventListener('DOMContentLoaded', function (event) {
-        swal('Error', 'Error interno');
+        swal('Error', 'El correo no se pudo enviar');
       });
     </script>";
   }
-  else if ($error == 3) {
+}
+if (isset($_GET["success"])){
+  $success = $_GET['success'];
+  if ($success == 1) {
     echo "<script>
-      document.addEventListener('DOMContentLoaded', function (event) {
-        swal('Error', 'Llene todos los campos');
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Correo enviado');
       });
     </script>";
   }

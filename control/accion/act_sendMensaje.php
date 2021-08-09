@@ -59,8 +59,11 @@ if (isset($_POST['asunto']) && $_POST['asunto']!=''
 
             if (!$mail->send()) {
                 echo '\nNo se envió';
+                header("Location:/../pensiones/vista/usuario/CitasArrendatario.php?error=0");
+                exit();
             }else {
-                echo '\nCorreo enviado';
+                header("Location:/../pensiones/vista/usuario/CitasArrendatario.php?success=1");
+                exit();
             }
             //echo '\nPasa algo raro';
         } catch (Exception $e) {
