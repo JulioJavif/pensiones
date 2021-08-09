@@ -69,7 +69,7 @@
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
-									<a class="dropdown-item" href="CitasArrendador">Contactar</a>
+									<!--<a class="dropdown-item" href="CitasArrendador">Contactar</a>
 									<!--<a class="dropdown-item" href="#">Ver citas</a>-->
 								</div>
 							</li>
@@ -349,6 +349,16 @@ if (isset($_GET["error"])) {
     echo "<script>
       document.addEventListener('DOMContentLoaded', function(event) {
         swal('Error', 'No se pudo completar la operación');
+      });
+    </script>";
+  }
+}
+if (isset($_GET["success"])) {
+  $success = $_GET["success"];
+  if ($success == 1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Success', 'Casa eliminada');
       });
     </script>";
   }

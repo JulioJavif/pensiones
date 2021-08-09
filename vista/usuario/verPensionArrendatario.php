@@ -2,6 +2,7 @@
   session_start();
   if (!isset($_SESSION['nombre'])) {
     header('location: login.php');
+    exit();
   }
 
   require_once "../../control/accion/act_getpension.php";
@@ -52,7 +53,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="arrendador.php">
+					<a class="navbar-brand" href="Arrendatario.php">
 						<img src="../../images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -101,7 +102,7 @@
 			<div class="col-md-8">
 				<div class="product-details">
           <?php 
-          $info = PensionDAO::GetPensionesAdminByID($_GET["ref"]);
+          $info = PensionDAO::GetPensionByID($_GET["ref"]);
           $path = PensionDAO::GetImagesPensionByID($_GET["ref"]);
           $habitacion = PensionDAO::GetHabitacionById($_GET["ref"]);
           if ($info == null) {
@@ -154,7 +155,7 @@
 					</div>
 					<!-- User Profile widget -->
 					<div class="widget user text-center">
-						<h4><a href=""><?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"] ?></a></h4>
+						<h4><a href=""><?php echo $info['nombre']." ".$info['apellido'] ?></a></h4>
 						<ul class="list-inline mt-20">
 							<?php echo'<li class="list-inline-item"><a href="CitasArrendatario.php?ref='.$_GET["ref"].'" class="btn btn-contact d-inline-block  btn-primary px-lg-5 my-1 px-md-3">Contactar</a></li>'?>
 						</ul>

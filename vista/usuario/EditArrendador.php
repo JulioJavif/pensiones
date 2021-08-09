@@ -69,7 +69,7 @@
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="AddPension.php">Agregar una casa nueva</a>
-									<a class="dropdown-item" href="CitasArrendador">Contactar</a>
+									<!--<a class="dropdown-item" href="CitasArrendador">Contactar</a>-->
 								</div>
 							</li>
 						</ul>
@@ -118,49 +118,52 @@
 					<p>En este apartado podrá corregir o actualizar los siguientes datos registrados en su cuenta</p>
 				</div>
 				<!-- Edit Personal Info -->
+				<?php
+				require_once(__DIR__."/../../control/accion/act_loadUsuario.php");
+				?>
 				<div class="row">
 					<div class="col-lg-6 col-md-6">
 						<div class="widget personal-info">
 							<h3 class="widget-header user">Editar informacion personal</h3>
-							<form action="#">
+							<form action="../../control/accion/act_UpdateInfPersonal.php" method="POST">
 								<!-- Identification-->
 								<div class="form-group">
-									<label for="first-name">Cedula</label>
-									<input type="number" class="form-control" id="first-name" value="1083456789" readonly>
+									<label for="first-name">Cédula</label>
+									<?php echo '<input type="number" name="dni" class="form-control" id="first-name" value="'.$usuario['dni'].'">';?>
 								</div>
 								<!-- First Name -->
 								<div class="form-group">
 									<label for="first-name">Nombres</label>
-									<input type="text" class="form-control" id="first-name">
+									<?php echo '<input name="nombre" type="text" class="form-control" id="first-name" value="'.$usuario['nombre'].'">';?>
 								</div>
 								<!-- Last Name -->
 								<div class="form-group">
 									<label for="last-name">Apellidos</label>
-									<input type="text" class="form-control" id="last-name">
+									<?php echo '<input name="apellido" type="text" class="form-control" id="last-name" value="'.$usuario['apellido'].'">';?>
 								</div>
 								<!-- File chooser -->
-								<label for="last-name">Foto de perfil</label>
+								<!--<label for="last-name">Foto de perfil</label>
 								<div class="form-group choose-file d-inline-flex">
 									<i class="fa fa-user text-center px-3"></i>
 									<input type="file" class="form-control-file mt-2 pt-1" id="input-file">
-								 </div>
+								 </div>-->
 								<!-- Comunity Name -->
-								<div class="form-group">
+								<!--<div class="form-group">
 									<label for="comunity-name">Dirección y nombre del barrio</label>
 									<input type="text" class="form-control" id="comunity-name">
-								</div>
+								</div>-->
 								<!-- Zip Code -->
-								<div class="form-group">
+								<!--<div class="form-group">
 									<label for="zip-code">Codigo postal</label>
 									<input type="text" class="form-control" id="zip-code">
-								</div>
+								</div>-->
 								<!-- phone -->
 								<div class="form-group">
 									<label for="first-name">Telefono</label>
-									<input type="number" class="form-control" id="first-name">
+									<?php echo'<input name="telefono" type="number" class="form-control" id="first-name" value="'.$usuario['telefono'].'">';?>
 								</div>
 								<!-- Submit button -->
-								<button class="btn btn-transparent">Guardar cambios</button>
+								<button type="submit" class="btn btn-transparent">Guardar cambios</button>
 							</form>
 						</div>
 					</div>
@@ -168,42 +171,42 @@
 						<!-- Change Password -->
 					<div class="widget change-password">
 						<h3 class="widget-header user">Editar contraseña</h3>
-						<form action="#">
+						<form action="../../control/accion/act_updateContrasena.php" method="POST">
 							<!-- Current Password -->
 							<div class="form-group">
 								<label for="current-password">Contraseña antigua</label>
-								<input type="password" class="form-control" id="current-password">
+								<input name="actual" type="password" class="form-control" id="current-password">
 							</div>
 							<!-- New Password -->
 							<div class="form-group">
 								<label for="new-password">Contraseña nueva</label>
-								<input type="password" class="form-control" id="new-password">
+								<input name="nueva1" type="password" class="form-control" id="new-password">
 							</div>
 							<!-- Confirm New Password -->
 							<div class="form-group">
 								<label for="confirm-password">Confirmar contraseña nueva</label>
-								<input type="password" class="form-control" id="confirm-password">
+								<input name="nueva2" type="password" class="form-control" id="confirm-password">
 							</div>
 							<!-- Submit Button -->
-							<button class="btn btn-transparent">Actualizar contraseña</button>
+							<button type="submit" class="btn btn-transparent">Actualizar contraseña</button>
 						</form>
 					</div>
 
 					<div class="widget change-email mb-0">
 						<h3 class="widget-header user">Editar dirección de correo electronico</h3>
-						<form action="#">
+						<form action="../../control/accion/act_updateCorreo.php" method="POST">
 							<!-- Current Password -->
 							<div class="form-group">
 								<label for="current-email">Dirección de correo anterior</label>
-								<input type="email" class="form-control" id="current-email">
+								<?php echo '<input name="correo" type="email" class="form-control" id="current-email" value="'.$usuario['email'].'">';?>
 							</div>
 							<!-- New email -->
 							<div class="form-group">
 								<label for="new-email">Nueva dirección de correo</label>
-								<input type="email" class="form-control" id="new-email">
+								<input name="newcorreo" type="email" class="form-control" id="new-email">
 							</div>
 							<!-- Submit Button -->
-							<button class="btn btn-transparent">Actualizar correo</button>
+							<button type="submit" class="btn btn-transparent">Actualizar correo</button>
 						</form>
 					</div>
 					</div>
@@ -327,7 +330,7 @@
 <script src="../../js/script.js"></script>
 
 <?php
-if (isset($_GET["error"])) {
+/*if (isset($_GET["error"])) {
   $error = $_GET["error"];
   if ($error == 1) {
     echo "<script>
@@ -349,6 +352,28 @@ if (isset($_GET["error"])) {
       });
     </script>";
   }
+}*/
+if (isset($_GET["resultado"])) {
+	$resultado = $_GET["resultado"];
+	if ($resultado == 1) {
+		echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Actualizado', 'Ha actualizado sus datos');
+      });
+    </script>";
+	}else if ($resultado == 2){
+		echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'No se pudo actualizar sus datos');
+      });
+    </script>";
+	}else{
+		echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Error', 'Debe llenar todos los campos');
+      });
+    </script>";
+	}
 }
 ?>
 
