@@ -242,6 +242,41 @@ class PensionDAO{
         }
         return false;
     }
+
+    //Delete
+    public static function EliminarPension($userID, $key){
+        $sql1 = "SELECT file_id FROM house_file WHERE house_for_rent_id = $key";
+        $sql2 = "DELETE FROM house_file WHERE house_for_rent_id = $key";
+        //$sql3 = "DELETE FROM file WHERE id = ?";
+        $sql4 = "DELETE FROM house_room WHERE house_for_rent_id = $key";
+        $sql5 = "DELETE FROM `house_for_rent` WHERE id = $key";
+
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $resultado1 = $cnx->prepare($sql1);
+        if ($resultado1->execute()) {
+            $resultado1 = $resultado1->fetch();
+            $resultado1 = $resultado1["file_id"];
+
+            $resultado2 = $cnx->prepare($sql2);
+            $resultado2 = $resultado2->execute();
+
+            $sql3 = "DELETE FROM file WHERE id = $resultado1";
+            $resultado3 = $cnx->prepare($sql3);
+            $resultado3 = $resultado3->execute();
+
+            $resultado4 = $cnx->prepare($sql4);
+            $resultado4 = $resultado4->execute();
+
+            $resultado5 = $cnx->prepare($sql5);
+            $resultado5 = $resultado5->execute();
+            if (!empty($resultado1) && $resultado2 && $resultado3 && $resultado4 && $resultado5) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 ?>

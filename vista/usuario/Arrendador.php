@@ -376,6 +376,16 @@ if (isset($_GET["error"])) {
     </script>";
   }
 }
+if (isset($_GET["success"])) {
+  $success = $_GET["success"];
+  if ($success == 1) {
+    echo "<script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+        swal('Success', 'Casa eliminada');
+      });
+    </script>";
+  }
+}
 ?>
 
 </body>

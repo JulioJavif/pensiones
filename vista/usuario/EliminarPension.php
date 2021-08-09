@@ -89,7 +89,7 @@
 
 <section class="bg-gray py-5">
     <div class="container">
-        <?php echo'<form action="../../control/accion/act_EliminarPension.php?ref='.$_GET["ref"].'" method="POST" enctype="multipart/form-data">'?>
+        <?php echo'<form action="../../control/accion/act_EliminarPension.php" method="POST" enctype="multipart/form-data">'?>
             <!-- Post Your ad start -->
             <fieldset class="border border-gary p-4 mb-5">
                     <div class="row">
@@ -98,9 +98,9 @@
                         </div>
                         <div class="col-lg-6">
                             <h6 class="font-weight-bold pt-4 pb-1">Seguro de eliminar?<strong>*</strong></h6>
-                            <input type="radio" id="si" name="eleccion" value="1">
+                            <input type="radio" id="si" name="eleccion" value="<?php echo $_GET["ref"]?>">
                             <label for="si">Si</label><br>
-                            <input type="radio" id="no" name="eleccion" value="2">
+                            <input type="radio" id="no" name="eleccion" value="-1">
                             <label for="no">No</label><br>
                         </div>
                         <div class="col-lg-6">
