@@ -67,16 +67,14 @@
 									<a class="nav-link" href="arrendatario.php">Inicio</a>
 								</li>
 								<li class="nav-item dropdown dropdown-slide">
-									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Mis casas<span><i
+									<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Menú<span><i
 												class="fa fa-angle-down"></i></span>
 									</a>
 
 									<!-- Dropdown list -->
 									<div class="dropdown-menu">
-										<a class="dropdown-item" href="#">Historial de casas</a>
 										<a class="dropdown-item" href="search.php">Buscar casa</a>
-										<a class="dropdown-item" href="#">Chat</a>
-										<a class="dropdown-item" href="#">Citas</a>
+										<a class="dropdown-item" href="CitasArrendatario">Contactar</a>
 									</div>
 								</li>
 							</ul>
@@ -102,20 +100,11 @@
 					<div class="advance-search">
 						<form>
 							<div class="form-row">
-								<div class="form-group col-md-4">
+								<div class="form-group col-md-6">
 									<input type="text" class="form-control my-2 my-lg-0" id="inputtext4"
 										placeholder="¿Qué estás buscando?">
 								</div>
-								<div class="form-group col-md-3">
-									<input type="text" class="form-control my-2 my-lg-0" id="inputCategory4"
-										placeholder="Categoria">
-								</div>
-								<div class="form-group col-md-3">
-									<input type="text" class="form-control my-2 my-lg-0" id="inputLocation4"
-										placeholder="Barrio">
-								</div>
-								<div class="form-group col-md-2">
-
+								<div class="form-group col-md-6">
 									<button type="submit" class="btn btn-secondary">Buscar ahora</button>
 								</div>
 							</div>
@@ -166,9 +155,9 @@
 							<div class="col-md-6">
 								<strong>Ordenar por</strong>
 								<select>
-									<option>Más reciente</option>
-									<option value="1">Más Popular</option>
-									<option value="2">Menor precio</option>
+									<option value="1">A - Z</option>
+									<option value="2">Z - A</option>
+									<option value="3">Menor precio</option>
 									<option value="4">Mayor precio</option>
 								</select>
 							</div>
@@ -176,46 +165,45 @@
 					</div>
 					<div class="product-grid-list">
 						<div class="row mt-30">
-						<?php
-require_once (__DIR__."/../../control/accion/act_loadpension.php");
-$pensiones = PensionDAO::GetPensiones();
-foreach ($pensiones as $pension) {
-echo"
-<div class='col-sm-12 col-lg-4 col-md-6'>
-	<div class='product-item bg-light'>";
-echo"
-		<div class='card'>
-			<div class='thumb-content'>
-				<a href='single.html'>
-					<img class='card-img-top img-fluid' src='../../images/products/icono.png' alt='Card image cap'>
-				</a>
-			</div>
-			<h4 class='card-title'><a href='single.html'>".$pension['address']."</a></h4>
-			<ul class='list-inline product-meta'>
-				<li class='list-inline-item'>
-					<a href='single.html'><i class='fa fa-folder-open-o'></i>".$pension['neighborhood']."</a>
-				</li>
-				<li class='list-inline-item'>
-					<a href='#'><i class='fa fa-calendar'></i>".date("d M")."</a>
-				</li>
-			</ul>
-			<p class='card-text'>".$pension['description']."</p>";
-echo"
-			<div class='product-ratings'>
-				<ul class='list-inline'>
-					<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-					<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-					<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-					<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-					<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>";
-}
-?>
-
+							<?php
+								require_once (__DIR__."/../../control/accion/act_loadpension.php");
+								$pensiones = PensionDAO::GetPensiones();
+								foreach ($pensiones as $pension) {
+								echo"
+								<div class='col-sm-12 col-lg-4 col-md-6'>
+									<div class='product-item bg-light'>";
+								echo"
+										<div class='card'>
+											<div class='thumb-content'>
+												<a href='verPensionArrendatario'>
+													<img class='card-img-top img-fluid' src='../../images/products/icono.png' alt='Card image cap'>
+												</a>
+											</div>
+											<h4 class='card-title'><a href='verPensionArrendatario'>".$pension['address']."</a></h4>
+											<ul class='list-inline product-meta'>
+												<li class='list-inline-item'>
+													<a href='verPensionArrendatario'><i class='fa fa-folder-open-o'></i>".$pension['neighborhood']."</a>
+												</li>
+												<li class='list-inline-item'>
+													<a href='verPensionArrendatario'><i class='fa fa-calendar'></i>".date("d M")."</a>
+												</li>
+											</ul>
+											<p class='card-text'>".$pension['description']."</p>";
+								echo"
+											<div class='product-ratings'>
+												<ul class='list-inline'>
+													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
+													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
+													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
+													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
+													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>";
+								}
+							?>
 						</div>
 					</div>
 					<div class="pagination justify-content-center">

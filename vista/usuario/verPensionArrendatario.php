@@ -3,7 +3,11 @@
   if (!isset($_SESSION['nombre'])) {
     header('location: login.php');
   }
+
+  require_once "../../control/accion/act_getpension.php";
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +16,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pensiones</title>
+  <title>Inicio | Arrendatario</title>
   
   <!-- FAVICON -->
-  <link href="img/favicon.png" rel="shortcut icon">
+  <link href="../../img/favicon.png" rel="shortcut icon">
   <!-- PLUGINS CSS STYLE -->
   <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
   <!-- Bootstrap -->
@@ -32,7 +36,6 @@
   <!-- CUSTOM CSS -->
   <link href="../../css/style.css" rel="stylesheet">
 
-
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -44,14 +47,12 @@
 
 <body class="body-wrapper">
 
-
-
 <section class="bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="arrendatario.php">
+					<a class="navbar-brand" href="arrendador.php">
 						<img src="../../images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,23 +62,24 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="arrendatario.php">Inicio</a>
+								<a class="nav-link bg-gray" href="arrendatario.php">Inicio</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Menú<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle bg-gray" data-toggle="dropdown" href="">Menú<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="search.php">Buscar casa</a>
-									<a class="dropdown-item" href="CitasArrendatario.php">Contactar</a>
+									<a class="dropdown-item" href="CitasArrendatario">Contactar</a>
+									<!--<a class="dropdown-item" href="#">Ver citas</a>-->
 								</div>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
                 <form action='../../control/accion/act_logout.php'>
-                  <input type="submit" name="sesionDestroy" class="nav-link text-white btn-danger" value="Cerrar sesion"/>
+                <input type="submit" name="sesionDestroy" class="nav-link text-white btn-danger" value="Cerrar sesion"/>
                 </form>
 							</li>
 						</ul>
@@ -87,133 +89,83 @@
 		</div>
 	</div>
 </section>
-<!--==================================
-=            User Profile            =
-===================================-->
+<!--===================================
+=            Store Section            =
+====================================-->
 
-<section class="user-profile section">
+<section class="section bg-gray">
+	<!-- Container Start -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
-				<div class="sidebar">
-					<!-- User Widget -->
-					<div class="widget user-dashboard-profile">
-					<!-- User Image -->
-					<div class="profile-thumb">
-					<img src="../../images/user/profile.png" alt="" class="rounded-circle">
+			<!-- Left sidebar -->
+			<div class="col-md-8">
+				<div class="product-details">
+          <?php 
+          $info = PensionDAO::GetPensionesAdminByID($_GET["ref"]);
+          $path = PensionDAO::GetImagesPensionByID($_GET["ref"]);
+          $habitacion = PensionDAO::GetHabitacionById($_GET["ref"]);
+          if ($info == null) {
+            header("Location:/../pensiones/vista/usuario/login.php");
+            exit();
+          }
+          echo '<h1 class="product-title">'.$info["neighborhood"].' '.$info["address"].'</h1>';
+          ?>
+					<!-- product slider -->
+					<div class="">
+            <?php 
+            foreach($path as $dir){
+              echo '<div class="product-slider-item my-4" data-image="'.$dir["path"].'">
+                      <img class="img-fluid w-10" src="'.$dir["path"].'" alt="'.$dir["name"].'" >
+                    </div>';
+            }
+            ?>
 					</div>
-					<!-- User Name -->
-					<?php
-					echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
-					echo "<p>Arrendatario</p>";
-					?>
-					<a href="EliminarUsuario.php" class="btn btn-main-sm">Eliminar cuenta</a>
-				</div>
-					<!-- Dashboard Links -->
-				</div>
-			</div>
-			<div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
-				<!-- Edit Profile Welcome Text -->
-				<div class="widget welcome-message">
-					<h2>Editar perfil</h2>
-					<p>En este apartado podrá corregir o actualizar los siguientes datos registrados en su cuenta</p>
-				</div>
-				<!-- Edit Personal Info -->
-				<div class="row">
-					<div class="col-lg-6 col-md-6">
-						<div class="widget personal-info">
-							<h3 class="widget-header user">Editar informacion personal</h3>
-							<form action="#">
-								<!-- Identification-->
-								<div class="form-group">
-									<label for="first-name">Cedula</label>
-									<input type="number" class="form-control" id="first-name" value="1083456789" readonly>
-								</div>
-								<!-- First Name -->
-								<div class="form-group">
-									<label for="first-name">Nombres</label>
-									<input type="text" class="form-control" id="first-name">
-								</div>
-								<!-- Last Name -->
-								<div class="form-group">
-									<label for="last-name">Apellidos</label>
-									<input type="text" class="form-control" id="last-name">
-								</div>
-								<!-- File chooser -->
-								<label for="last-name">Foto de perfil</label>
-								<div class="form-group choose-file d-inline-flex">
-									<i class="fa fa-user text-center px-3"></i>
-									<input type="file" class="form-control-file mt-2 pt-1" id="input-file">
-								 </div>
-								<!-- Comunity Name -->
-								<div class="form-group">
-									<label for="comunity-name">Dirección y nombre del barrio</label>
-									<input type="text" class="form-control" id="comunity-name">
-								</div>
-								<!-- Zip Code -->
-								<div class="form-group">
-									<label for="zip-code">Codigo postal</label>
-									<input type="text" class="form-control" id="zip-code">
-								</div>
-								<!-- phone -->
-								<div class="form-group">
-									<label for="first-name">Telefono</label>
-									<input type="number" class="form-control" id="first-name">
-								</div>
-								<!-- Submit button -->
-								<button class="btn btn-transparent">Guardar cambios</button>
-							</form>
+					<!-- product slider -->
+
+					<div class="content mt-5 pt-5">
+						<ul class="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+								 aria-selected="true">Detalles</a>
+							</li>
+						</ul>
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+								<h3 class="tab-title">Descripción de la casa</h3>
+                <?php 
+                echo '<p>'.$info["description"].'</p>';
+                ?>
+                <h3 class="tab-title">Capacidad de habitaciones</h3>
+                <p><?php echo $habitacion["capacity"];?> personas</p>
+                <h3 class="tab-title">Descripción de habitaciones</h3>
+                <?php 
+                echo '<p>'.$habitacion["description"].'</p>';
+                ?>
+							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-6">
-						<!-- Change Password -->
-					<div class="widget change-password">
-						<h3 class="widget-header user">Editar contraseña</h3>
-						<form action="#">
-							<!-- Current Password -->
-							<div class="form-group">
-								<label for="current-password">Contraseña antigua</label>
-								<input type="password" class="form-control" id="current-password">
-							</div>
-							<!-- New Password -->
-							<div class="form-group">
-								<label for="new-password">Contraseña nueva</label>
-								<input type="password" class="form-control" id="new-password">
-							</div>
-							<!-- Confirm New Password -->
-							<div class="form-group">
-								<label for="confirm-password">Confirmar contraseña nueva</label>
-								<input type="password" class="form-control" id="confirm-password">
-							</div>
-							<!-- Submit Button -->
-							<button class="btn btn-transparent">Actualizar contraseña</button>
-						</form>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="sidebar">
+					<div class="widget price text-center">
+						<h4>Precio:</h4>
+						<p><?php echo $habitacion["rental_price"];?></p>
 					</div>
-
-					<div class="widget change-email mb-0">
-						<h3 class="widget-header user">Editar dirección de correo electronico</h3>
-						<form action="#">
-							<!-- Current Password -->
-							<div class="form-group">
-								<label for="current-email">Dirección de correo anterior</label>
-								<input type="email" class="form-control" id="current-email">
-							</div>
-							<!-- New email -->
-							<div class="form-group">
-								<label for="new-email">Nueva dirección de correo</label>
-								<input type="email" class="form-control" id="new-email">
-							</div>
-							<!-- Submit Button -->
-							<button class="btn btn-transparent">Actualizar correo</button>
-						</form>
-					</div>
+					<!-- User Profile widget -->
+					<div class="widget user text-center">
+						<h4><a href=""><?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"] ?></a></h4>
+						<ul class="list-inline mt-20">
+							<?php echo'<li class="list-inline-item"><a href="CitasArrendatario.php?ref='.$_GET["ref"].'" class="btn btn-contact d-inline-block  btn-primary px-lg-5 my-1 px-md-3">Contactar</a></li>'?>
+						</ul>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
+	<!-- Container End -->
 </section>
-
 <!--============================
 =            Footer            =
 =============================-->
@@ -297,8 +249,17 @@
           <p>Copyright © <script>
               var CurrentYear = new Date().getFullYear()
               document.write(CurrentYear)
-            </script>. Todos los derechos reservados.</p>
+            </script>. All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com" target="_blank">themefisher.com</a></p>
         </div>
+      </div>
+      <div class="col-sm-6 col-12">
+        <!-- Social Icons -->
+        <ul class="social-media-icons text-right">
+          <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-vimeo" href=""></a></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -327,31 +288,7 @@
 <script src="../../plugins/google-map/gmap.js"></script>
 <script src="../../js/script.js"></script>
 
-<?php
-if (isset($_GET["error"])) {
-  $error = $_GET["error"];
-  if ($error == 1) {
-    echo "<script>
-      document.addEventListener('DOMContentLoaded', function(event) {
-        swal('Error', 'Correo o contraseña invalidos');
-      });
-    </script>";
-  }else if ($error == 2) {
-    echo "<script>
-      document.addEventListener('DOMContentLoaded', function(event) {
-        swal('Error', 'Error interno');
-      });
-    </script>";
-  }
-  else if ($error == 3) {
-    echo "<script>
-      document.addEventListener('DOMContentLoaded', function(event) {
-        swal('Error', 'Llene todos los campos');
-      });
-    </script>";
-  }
-}
-?>
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 
 </body>
 

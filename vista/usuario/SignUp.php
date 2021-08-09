@@ -1,3 +1,18 @@
+
+<?php
+  session_start();
+  if (isset($_SESSION['nombre'])) {
+    if ($_SESSION['type'] == 1) {
+      header("Location: Arrendador.php");
+      exit();
+    }
+    if ($_SESSION['type'] == 2) {
+      header("Location: Arrendatario.php");
+      exit();
+    }
+    
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
