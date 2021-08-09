@@ -74,7 +74,7 @@
 									<!-- Dropdown list -->
 									<div class="dropdown-menu">
 										<a class="dropdown-item" href="search.php">Buscar casa</a>
-										<a class="dropdown-item" href="CitasArrendatario">Contactar</a>
+										<!--<a class="dropdown-item" href="CitasArrendatario">Contactar</a>-->
 									</div>
 								</li>
 							</ul>

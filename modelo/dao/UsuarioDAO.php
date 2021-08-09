@@ -161,4 +161,20 @@ class UsuarioDAO {
         $resultado = $cnx->prepare($sql);
         return $resultado->execute();
     }
+
+    public static function getUsuarioByIdPension($PensionId){
+        $sql = "select email, nombre, apellido, telefono from user
+                inner join house_for_rent
+                on user.id = house_for_rent.owner_user_id
+                where house_for_rent.id = $PensionId";
+
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            return $resultado->fetch();
+        }
+        return null;
+    }
 }

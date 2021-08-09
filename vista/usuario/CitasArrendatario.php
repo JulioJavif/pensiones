@@ -195,16 +195,16 @@
         </div>
         -->
         <div class="col-md-12">
-          <form action="#">
+          <?PHP echo '<form action="../../control/accion/act_sendMensaje.php?ref='.$_GET['ref'].'" method="POST">';?>
             <fieldset class="p-4">
               <div class="form-group">
                 <div class="row">
                   <div class="col-lg-6 pt-2">
-                    <input type="text" placeholder="Fecha y hora de la cita *" class="form-control" required>
+                    <input name="asunto" type="text" placeholder="Asunto del mensaje" class="form-control" required>
                   </div>
                 </div>
               </div>
-              <textarea name="message" id="" placeholder="Contenido *" class="border w-100 p-3 mt-3 mt-lg-4"></textarea>
+              <textarea name="message" id="message" placeholder="Contenido *" class="border w-100 p-3 mt-3 mt-lg-4"></textarea>
               <div class="btn-grounp">
                 <button type="submit" class="btn btn-primary mt-2 float-right">ENVIAR</button>
               </div>
