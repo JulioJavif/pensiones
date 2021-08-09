@@ -2,6 +2,7 @@
   session_start();
   if (!isset($_SESSION['nombre'])) {
     header('location: login.php');
+    exit();
   }
 
   require_once "../../control/accion/act_getpension.php";
@@ -101,7 +102,7 @@
 			<div class="col-md-8">
 				<div class="product-details">
           <?php 
-          $info = PensionDAO::GetPensionesAdminByID($_GET["ref"]);
+          $info = PensionDAO::GetPensionByID($_GET["ref"]);
           $path = PensionDAO::GetImagesPensionByID($_GET["ref"]);
           $habitacion = PensionDAO::GetHabitacionById($_GET["ref"]);
           if ($info == null) {

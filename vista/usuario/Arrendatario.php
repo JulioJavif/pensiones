@@ -107,7 +107,7 @@
               echo "<h5 class='text-center'>".$_SESSION['nombre']." ".$_SESSION['apellido']."</h5>";
               echo "<p>Estudiante</p>";
             ?>
-            <a href="EditArrendatario" class="btn btn-main-sm">Editar Perfil</a>
+            <a href="EditArrendatario.php" class="btn btn-main-sm">Editar Perfil</a>
           </div>
           <!-- Dashboard Links -->
           
@@ -127,36 +127,41 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="product-thumb">
-                  <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description"></td>
-                <td class="product-details">
-                  <h3 class="title">Pension 1</h3>
-                  <span class="add-id"><strong>Dirección:</strong>Calle falsa #123</span>
-                  <span><strong>Publicación:</strong><time> Junio 27, 2017</time> </span>
-                  <span class="status active"><strong>Estado</strong>Disponible</span>
-                  <span class="location"><strong>Barrio</strong>Almendros</span>
-                </td>
-                <td class="product-category"><span class="categories status active"></span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="verPensionArrendatario">
-                          <i class="fa fa-eye"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Quitar casa de favoritos" href="">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              </tr>
-              </tr>
+            <?php 
+              require_once (__DIR__."/../../control/accion/act_loadRecientes.php");
+              $lista = PensionDAO::GetRecientes();
+              if ($lista != null) {
+                $i = 1;
+                foreach ($lista as $pension){
+                  if ($i == 10) {
+                    break;
+                  }
+                  echo '<tr>
+                  <td class="product-thumb">
+                    <img width="80px" height="auto" src="../../images/products/icono.png" alt="image description">
+                  </td>
+                  <td class="product-details">';
+                  echo '<span class="add-id"><strong>Dirección:</strong>'.$pension["address"].'</span>';
+                  echo '<span class="location"><strong>Barrio</strong>'.$pension["neighborhood"].'</span>';
+                  echo '</td>
+                  <td class="product-category"><span class="categories status active"></span>
+                  </td>
+                  <td class="action" data-title="Action">
+                    <div class="">
+                      <ul class="list-inline justify-content-center">
+                        <li class="list-inline-item">';
+                        echo '<a data-toggle="tooltip" data-placement="top" title="Ver casa" class="view" href="verPensionArrendatario.php?ref='.$pension["id"].'">
+                        <i class="fa fa-eye"></i>
+                      </a>';
+                        echo '</li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>';
+                $i = $i + 1;
+                }
+              }
+              ?>
             </tbody>
           </table>
 

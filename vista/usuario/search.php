@@ -98,14 +98,14 @@
 				<div class="col-md-12">
 					<!-- Advance Search -->
 					<div class="advance-search">
-						<form>
+						<form action="../../control/accion/act_BuscarPension.php" method="POST">
 							<div class="form-row">
 								<div class="form-group col-md-6">
-									<input type="text" class="form-control my-2 my-lg-0" id="inputtext4"
-										placeholder="¿Qué estás buscando?">
+									<input type="text" class="form-control my-2 my-lg-0" id="buscarpension"
+										placeholder="¿Qué estás buscando?" name="buscarpension">
 								</div>
 								<div class="form-group col-md-6">
-									<button type="submit" class="btn btn-secondary">Buscar ahora</button>
+									<button type="submit" class="btn btn-secondary" name="buscar">Buscar ahora</button>
 								</div>
 							</div>
 						</form>
@@ -118,16 +118,29 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="search-result bg-gray">
+					<!--<div class="search-result bg-gray">
 						<h2>Results For "Almendros"</h2>
 						<p>12 Resultados</p>
-					</div>
+					</div>-->
+					<?php
+					if (isset($_GET['q']) && $_GET['q'] != "") {
+						echo '<div class="search-result bg-gray">
+								<h2>Resultados para "'.$_GET['q'].'"</h2>
+								<p>Resultados</p>
+							</div>';
+					}else if (isset($_GET['error']) && $_GET['error']==0) {
+						echo '<div class="search-result bg-gray">
+								<h2>No se encontró nada para su búsqueda</h2>
+								<p>Resultados</p>
+							</div>';
+					}
+					?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">
 					<div class="category-sidebar">
-						<div class="widget category-list">
+						<!--<div class="widget category-list">
 							<h4 class="widget-header">Categorias</h4>
 							<ul class="category-list">
 								<li><a href="category.html">Barrio <span>2</span></a></li>
@@ -135,9 +148,9 @@
 								<li><a href="category.html">Comidas <span>4</span></a></li>
 								<li><a href="category.html">Personas <span>3</span></a></li>
 							</ul>
-						</div>
+						</div>-->
 
-						<div class="widget price-range w-100">
+						<!--<div class="widget price-range w-100">
 							<h4 class="widget-header">Rango de precio</h4>
 							<div class="block">
 								<input class="range-track w-100" type="text" data-slider-min="0"
@@ -145,13 +158,16 @@
 								<div class="d-flex justify-content-between mt-2">
 									<span class="value">$100000 - $700000</span>
 								</div>
+								<div class="d-flex justify-content-between mt-2">
+									<button>Buscar</button>
+								</div>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 				<div class="col-md-9">
 					<div class="category-search-filter">
-						<div class="row">
+						<!--<div class="row">
 							<div class="col-md-6">
 								<strong>Ordenar por</strong>
 								<select>
@@ -161,47 +177,69 @@
 									<option value="4">Mayor precio</option>
 								</select>
 							</div>
-						</div>
+						</div>-->
 					</div>
 					<div class="product-grid-list">
 						<div class="row mt-30">
 							<?php
-								require_once (__DIR__."/../../control/accion/act_loadpension.php");
-								$pensiones = PensionDAO::GetPensiones();
-								foreach ($pensiones as $pension) {
-								echo"
-								<div class='col-sm-12 col-lg-4 col-md-6'>
-									<div class='product-item bg-light'>";
-								echo"
-										<div class='card'>
-											<div class='thumb-content'>
-												<a href='verPensionArrendatario'>
-													<img class='card-img-top img-fluid' src='../../images/products/icono.png' alt='Card image cap'>
-												</a>
+								if (isset($_GET["q"])) {
+									require_once (__DIR__."/../../control/accion/act_loadpension.php");
+									$pensiones = PensionDAO::BuscarPension($_GET["q"]);
+									foreach ($pensiones as $pension) {
+										echo"
+										<div class='col-sm-12 col-lg-4 col-md-6'>
+											<div class='product-item bg-light'>";
+										echo"
+												<div class='card'>
+													<div class='thumb-content'>
+														<a href='verPensionArrendatario.php?ref=".$pension['houseid']."'>
+															<img class='card-img-top img-fluid' src='../../images/products/icono.png' alt='Card image cap'>
+														</a>
+													</div>
+													<h4 class='card-title'><a href='verPensionArrendatario'>".$pension['address']."</a></h4>
+													<ul class='list-inline product-meta'>
+														<li class='list-inline-item'>
+															<a href='#'><i class='fa fa-folder-open-o'></i>".$pension['neighborhood']."</a>
+														</li>
+														<li class='list-inline-item'>
+															<a href='#'><i class='fa fa-money'></i>".$pension['rental_price']."</a>
+														</li>
+													</ul>
+													<p class='card-text'>".$pension['description']."</p>";
+										echo"
+												</div>
 											</div>
-											<h4 class='card-title'><a href='verPensionArrendatario'>".$pension['address']."</a></h4>
-											<ul class='list-inline product-meta'>
-												<li class='list-inline-item'>
-													<a href='verPensionArrendatario'><i class='fa fa-folder-open-o'></i>".$pension['neighborhood']."</a>
-												</li>
-												<li class='list-inline-item'>
-													<a href='verPensionArrendatario'><i class='fa fa-calendar'></i>".date("d M")."</a>
-												</li>
-											</ul>
-											<p class='card-text'>".$pension['description']."</p>";
-								echo"
-											<div class='product-ratings'>
-												<ul class='list-inline'>
-													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-													<li class='list-inline-item selected'><i class='fa fa-star'></i></li>
-												</ul>
+										</div>";
+										}
+								}else{
+									require_once (__DIR__."/../../control/accion/act_loadpension.php");
+									$pensiones = PensionDAO::GetPensiones();
+									foreach ($pensiones as $pension) {
+										echo"
+										<div class='col-sm-12 col-lg-4 col-md-6'>
+											<div class='product-item bg-light'>";
+										echo"
+												<div class='card'>
+													<div class='thumb-content'>
+														<a href='verPensionArrendatario.php?ref=".$pension['id']."'>
+															<img class='card-img-top img-fluid' src='../../images/products/icono.png' alt='Card image cap'>
+														</a>
+													</div>
+													<h4 class='card-title'><a href='verPensionArrendatario'>".$pension['address']."</a></h4>
+													<ul class='list-inline product-meta'>
+														<li class='list-inline-item'>
+															<a href='verPensionArrendatario'><i class='fa fa-folder-open-o'></i>".$pension['neighborhood']."</a>
+														</li>
+														<li class='list-inline-item'>
+															<a href='verPensionArrendatario'><i class='fa fa-calendar'></i>".date("d M")."</a>
+														</li>
+													</ul>
+													<p class='card-text'>".$pension['description']."</p>";
+										echo"
+												</div>
 											</div>
-										</div>
-									</div>
-								</div>";
+										</div>";
+									}
 								}
 							?>
 						</div>
@@ -354,23 +392,29 @@ if (isset($_GET["error"])) {
   $error = $_GET["error"];
   if ($error == 1) {
     echo "<script>
-      document.addEventListener('DOMContentLoaded', function(event) {
-        swal('Error', 'Correo o contraseña invalidos');
+      		document.addEventListener('DOMContentLoaded', function(event) {
+        		swal('Error', 'Correo o contraseña invalidos');
       });
     </script>";
   }else if ($error == 2) {
     echo "<script>
-		document.addEventListener('DOMContentLoaded', function (event) {
-			swal('Error', 'Error interno');
+			document.addEventListener('DOMContentLoaded', function (event) {
+				swal('Error', 'Error interno');
 		});
 	</script>";
   }
   else if ($error == 3) {
     echo "<script>
-		document.addEventListener('DOMContentLoaded', function (event) {
-			swal('Error', 'Llene todos los campos');
+			document.addEventListener('DOMContentLoaded', function (event) {
+				swal('Error', 'Llene todos los campos', 'error');
 		});
 	</script>";
+  }else if ($error = 0) {
+	echo "<script>
+    		document.addEventListener('DOMContentLoaded', function(event) {
+     			swal('Error', 'Sin resultados', 'error');
+    		});
+  		</script>";
   }
 }
 ?>

@@ -94,8 +94,6 @@ class PensionDAO{
         }
     }
 
-
-    //Gets
     public static function GuardarHabitacion($id, $direccion, $valor, $descripcion, $capacidad){
         $casaId = PensionDAO::casaID($id, $direccion);
         require_once (__DIR__."/conexion.php");
@@ -113,11 +111,13 @@ class PensionDAO{
         return false;
     }
 
+
+    //Gets
     public static function GetPensiones(){
         require_once (__DIR__."/conexion.php");
         $cnx = conectar::conectarDB();
 
-        require_once (__DIR__."/../entidad/Pension.php");
+        //require_once (__DIR__."/../entidad/Pension.php");
         $sql = "SELECT * FROM house_for_rent WHERE 1";
         $resultado = $cnx->prepare($sql);
         if ($resultado->execute()) {
@@ -126,10 +126,22 @@ class PensionDAO{
         }
     }
 
+    public static function GetRecientes(){
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $sql = "select * from house_for_rent
+        order by house_for_rent.id desc";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            return $resultado->fetchAll();
+        }
+    }
+
     public static function GetPensionesAdmin(){
         $id = $_SESSION['id'];
 
-        require_once (__DIR__."/../entidad/Pension.php");
+        //require_once (__DIR__."/../entidad/Pension.php");
         require_once (__DIR__."/conexion.php");
         $cnx = conectar::conectarDB();
 
@@ -147,6 +159,19 @@ class PensionDAO{
         $cnx = conectar::conectarDB();
         
         $sql = "SELECT * FROM house_for_rent WHERE house_for_rent.owner_user_id = ".$_SESSION['id']." and house_for_rent.id = $id";
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            $info = $resultado->fetch();
+            return $info;
+        }
+        return null;
+    }
+
+    public static function GetPensionByID($id){
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+        
+        $sql = "SELECT * FROM house_for_rent WHERE house_for_rent.id = $id";
         $resultado = $cnx->prepare($sql);
         if ($resultado->execute()) {
             $info = $resultado->fetch();
@@ -185,6 +210,26 @@ class PensionDAO{
         return null;
     }
 
+    public static function BuscarPension($key){
+        $sql = "select house_for_rent.id as houseid,
+                house_for_rent.address as address,
+                house_for_rent.neighborhood as neighborhood,
+                house_room.rental_price as rental_price,
+                house_for_rent.description as description
+                from house_for_rent
+                inner join house_room
+                on house_for_rent.id = house_room.house_for_rent_id
+                where neighborhood = '$key' or address = '$key' or rental_price = '$key'";
+
+        require_once (__DIR__."/conexion.php");
+        $cnx = conectar::conectarDB();
+
+        $resultado = $cnx->prepare($sql);
+        if ($resultado->execute()) {
+            return $resultado->fetchAll();
+        }
+        return null;
+    }
 
     //Updates
     public static function UpdateCasa(Pension $pension, $userID){
